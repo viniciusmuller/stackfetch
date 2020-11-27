@@ -1,16 +1,14 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 
-import User from '../models/user';
-import Technology from '../models/technology';
+import Technology from '@models/technology';
+import User from '@models/user';
 
-import UserView from '../views/userView';
+import UserView from '@views/userView';
 
-//TODO create migration script for saving languages on the database
 export default {
-
-    /**
+  /**
    * Creates a user into the database and returns his information.
    * 
    * @param name - Passed via request query params.
@@ -29,15 +27,52 @@ export default {
     const userRepository = getRepository(User);
     const technologyRepository = getRepository(Technology);
 
+    let postData;
+
     const {
       name,
       age,
       about,
       gitHubUsername,
       stack
-    } = request.body;
+    } = postData = request.body;
 
-    // TODO data validation with Yup
+    // TODO improve validation error messages.
+    const userSchema = Yup.object().shape({
+      name: Yup.string()
+        .required()
+        .min(7)
+        .max(30),
+      
+      age: Yup.number()
+        .required()
+        .integer()
+        .min(10)
+        .max(120),
+
+      about: Yup.string()
+        .required()
+        .min(20)
+        .max(300),
+
+      // TODO check if the given username exists using GitHub API.
+      gitHubUsername: Yup.string()
+        .required()
+        .min(4)
+        .max(39),
+
+    // Stack must be an Array containing the user technologies IDs.
+    // TODO refuse empty stack, since Yup's min doesn't work on arrays.
+      stack: Yup.array()
+        .required()
+        .of(Yup.number())
+        .max(8)
+    });
+
+    await userSchema.validate(postData, {
+      abortEarly: false,
+      strict: true
+    });
 
     const user = userRepository.create({
       name: name,
@@ -46,10 +81,7 @@ export default {
       gitHubUsername: gitHubUsername
     });
 
-    // Stack must be an Array containing the selected technologies IDs.
-    // A user object can have up to seven technologies.
-    const techs = await technologyRepository.findByIds(stack.slice(0, 7));
-    user.technologies = techs;
+    user.technologies = await technologyRepository.findByIds(stack)
 
     await userRepository.save(user);
     return response.status(201).json(UserView.render(user));
@@ -67,7 +99,7 @@ export default {
 
     const userRepository = getRepository(User);
 
-    let { page } = request.query || 0;
+    const { page } = request.query || 0;
 
     const users = await userRepository.find({
       relations: ['technologies'],
@@ -95,6 +127,6 @@ export default {
     });
 
     return user ? response.json(UserView.render(user))
-                : response.status(404).json({message: "User not found"});
+                : response.status(404).json({ message: 'User not found' });
   }
 };
