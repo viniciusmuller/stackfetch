@@ -5,27 +5,22 @@ import Technology from './technology';
 @Entity('users')
 export default class User {
 
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryGeneratedColumn()
   id: number;
     
-  @Column('varchar', {length: 50})
+  @Column()
   name: string;
   
-  @Column('integer')
+  @Column()
   age: number;
   
-  @Column('varchar', {length: 300})
+  @Column()
   about: string;
 
-  @Column('varchar', {
-    length: 39,
-    unique: true
-  })
+  @Column()
   gitHubUsername: string;
 
-  @ManyToMany(() => Technology, technology => technology.users, {
-    cascade: true,
-  })
+  @ManyToMany(() => Technology, technology => technology.users)
   @JoinTable()
   technologies: Technology[];
 }
