@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-size: $global-font-size;
+  font-family: 'Poppins', sans-serif;
+
+  // Adjusting content size to larger displays
+  @media (min-width: $screen) {
+    font-size: $global-font-size * 1.3;
+  }
+
+  @media (min-width: $l-screen) {
+    font-size: $global-font-size * 2;
+  }
+
+  @media (min-width: $xl-screen) {
+    font-size: $global-font-size * 4;
+  }
+}
+
+body {
+  // Background vector
+  background: url(../../assets/svg/background.svg) no-repeat fixed;
+  background-size: 60rem;
+  // Body background color
+  background-color: $bg-color;
+
+  &::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb-color;
+  }
+}

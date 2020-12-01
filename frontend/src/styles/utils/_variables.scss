@@ -1,0 +1,65 @@
+$bg-color: #17191a;
+$global-font-size: 15px;
+
+// ----------------------- Media breakpoints -----------------------
+$s-mobile: 320px;
+$mobile: 426px;
+$tablet: 768px;
+$laptop: 1024px;
+$screen: 1920px;
+$l-screen: 2560px;
+$xl-screen: 3840px;
+
+// ----------------------- Options bar -----------------------
+$options-bar-width: 4rem;
+$options-bar-bg-color: #17191a;
+$options-bar-slide-speed: 200ms;
+
+$register-link-button-color: #7442d6;
+$register-link-button-hover-color: #7854dc;
+$register-link-button-text-color: #ffffff;
+
+$cog-svg-color: #a172ff;
+$cog-svg-rotation-speed: 200ms;
+
+$toggle-options-svg-color: #ffffff;
+
+$technology-input-color: #ffffff;
+$technology-input-placeholder-color: #ffffff;
+$technology-input-underline-color: #ffffff;
+$technology-input-underline-hover-color: #d694fd;
+
+$technology-selected-bg-color: #9064cc;
+$technology-selected-text-color: #ffffff;
+
+// ----------------------- Scrollbar -----------------------
+$scrollbar-thumb-color: #b691ff;
+$scrollbar-track-color: #101010;
+
+// ----------------------- Search -----------------------
+$search-button-svg-color: #a172ff;
+$search-button-color: #353535;
+
+$search-input-color: #ffffff;
+$search-input-underline-color: #585059;
+$search-input-underline-color-focus: #b26eff;
+
+// ----------------------- Users -----------------------
+$user-bg-color: #202324;
+$username-text-color: #ffffff;
+$user-gh-username-background-color: #1d1d1d;
+$user-gh-username-text-color: #f9b9fc;
+$user-grow-speed: 100ms;
+$user-grow-scale: 1.09;
+$user-card-width: 16rem;
+
+// ----------------------- Footer -----------------------
+$footer-bg-color: #131313;
+$footer-svg-color: #ffffff;
+$footer-content-color: #ffffff;
+
+// ----------------------- Not found -----------------------
+$not-found-font-size: 4rem;
+$not-found-color: #ffffff;
+$not-found-button-color: #ad5cff;
+$not-found-button-text-color: #ffffff;

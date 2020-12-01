@@ -1,0 +1,35 @@
+footer {
+  @include flex;
+
+  padding: 2rem 0;
+  position: absolute;
+  width: 100%;
+
+  background-color: $footer-bg-color;
+
+  .footer-section {
+    margin: auto;
+    text-align: center;
+    color: $footer-content-color;
+
+    a {
+      color: inherit;
+    }
+
+    .footer-repo-link {
+      text-decoration: none;
+    }
+
+    .footer-gh-icon {
+      fill: $footer-svg-color;
+    }
+
+    @media (max-width: 768px) {
+      padding: 1.5rem 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}

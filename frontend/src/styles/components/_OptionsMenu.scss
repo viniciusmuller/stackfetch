@@ -1,0 +1,134 @@
+#options-bar {
+	width: $options-bar-width;
+	height: 100vh;
+
+	background-color: $options-bar-bg-color;
+
+	transition: width $options-bar-slide-speed ease;
+	position: fixed;
+	z-index: 1;
+
+	.cog {
+    @include flex($justify: flex-end);
+		padding: 0.6rem 0.5rem 0 0;
+	}
+
+	.cog svg {
+		fill: $cog-svg-color;
+		transform: rotate(0deg);
+		transition: transform $cog-svg-rotation-speed;
+	}
+
+	.options-flex {
+    @include flex($direction: column);
+
+    padding-top: 1.5rem;
+    width: 17rem;
+
+    .options {
+      display: none;
+      text-align: center;
+
+      h2 {
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+
+      .MuiAutocomplete-root {
+        width: 10rem;
+
+        .MuiSvgIcon-root {
+          fill: $toggle-options-svg-color;
+        }
+
+        .MuiChip-root {
+          color: $technology-selected-text-color;
+          background-color: $technology-selected-bg-color;
+        }
+
+        .MuiInput-underline {
+
+          &::before {
+            border-bottom: 1px solid $technology-input-underline-color;
+          }
+
+          &::after {
+            border-bottom: 3px solid $technology-input-underline-hover-color;
+          }
+        }
+
+        label {
+          color: $technology-input-placeholder-color;
+        }
+
+        input {
+          color: $technology-input-color;
+        }
+      }
+
+      .reg-button-wrapper {
+        position: absolute;
+        bottom: 3rem;
+        left: 0;
+
+        .link-register {
+          text-decoration: none;
+
+          .mui-register-button {
+
+            background: $register-link-button-color;
+            color: $register-link-button-text-color;
+            font-size: 1.2rem;
+
+            text-transform: none;
+            border-radius: 3rem;
+            width: 8rem;
+
+            &:hover {
+              background-color: $register-link-button-hover-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:focus-within {
+    outline: none;
+		width: 17rem;
+	}
+
+  &:hover .cog svg,
+  &:focus-within .cog svg {
+		transform:rotate(360deg);
+  }
+
+  &:hover .options,
+  &:focus-within .options {
+    display: block;
+  }
+}
+
+// Overriding Material UI's default autocomplete styles
+// .MuiAutocomplete {
+//   &-root {
+//     width: 10rem;
+//   }
+
+//   &-input {
+//     font-size: 2rem;
+//   }
+// }
+
+//   @extend %button;
+
+//   background: $register-link-button-color;
+//   color: $register-link-button-text-color;
+
+//   font-size: 1rem;
+//   width: 8rem;
+
+//   padding: 0.5rem;
+//   border-radius: 3rem;
+// }

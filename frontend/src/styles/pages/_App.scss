@@ -1,0 +1,75 @@
+#app {
+  margin-left: $options-bar-width;
+
+  #logo-wrapper {
+    @include flex($justify: flex-end);
+    padding-right: 1.3rem;
+
+    .main-app-logo {
+      @include width-height(12rem, 4rem);
+    }
+  }
+
+  #search {
+    @include flex;
+    padding-bottom: 3rem;
+
+    .MuiInput-underline {
+      &::before {
+        border-bottom: 1px solid $search-input-underline-color;
+      }
+
+      &::after {
+        border-bottom: 2px solid $search-input-underline-color-focus;
+      }
+    }
+
+    input {
+      @include width-height(20rem, 3rem);
+
+      border-radius: 2rem;
+
+      color: $search-input-color;
+      font-size: 1.15rem;
+      padding-left: 1rem;
+
+      @media (max-width: $mobile) {
+        @include width-height(15rem, 3rem);
+        font-size: 0.95rem;
+      }
+    }
+
+    .search-button {
+      background-color: $search-button-color;
+
+      @include width-height(3rem);
+      min-width: 1rem;
+
+      margin-left: 0.6rem;
+      border-radius: 50%;
+
+      svg {
+        color: $search-button-svg-color;
+      }
+
+      @media (max-width: $s-mobile) {
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      padding-bottom: 1.3rem;
+    }
+  } // search
+
+  #users {
+    @include flex;
+    padding-bottom: 6rem;
+  }
+
+  // Prevent footer from creating a horizontal scrollbar
+  // due to options bar margin
+  footer {
+    width: calc(100% - #{$options-bar-width});
+  }
+} // main

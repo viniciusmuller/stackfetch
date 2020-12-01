@@ -1,0 +1,36 @@
+#not-found {
+  @include flex($direction: column);
+  padding-top: 25vh;
+
+  * {
+    padding: 0.5rem 0;
+  }
+
+  h1 {
+    color: #ffffff;
+    font-size: $not-found-font-size;
+  }
+
+  h2 {
+    color: #ffffff;
+    font-size: $not-found-font-size / 2;
+  }
+
+  a {
+    margin-top: 1rem;
+
+    text-decoration: none;
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 3rem;
+
+      text-transform: none;
+
+      background: $not-found-button-color;
+      color: $not-found-button-text-color;
+
+      font-size: 1.3rem;
+    }
+  }
+}
