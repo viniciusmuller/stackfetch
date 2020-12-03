@@ -1,0 +1,8 @@
+#logo-wrapper {
+  @include flex($justify: flex-end);
+  padding-right: 1.3rem;
+
+  .main-app-logo {
+    @include width-height(12rem, 4rem);
+  }
+}
