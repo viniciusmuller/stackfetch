@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { styled } from '@material-ui/core/styles';
 
-function OptionsMenu() {
+interface OptionsMenuProps {
+  onChange: (event: React.ChangeEvent<{}>, value: string[]) => void;
+}
+
+function OptionsMenu(props: OptionsMenuProps) {
   return (
-    <div id="options-bar"
+    <div
+      id="options-bar"
       tabIndex={0}
     >
       <div className="cog">
@@ -20,7 +24,7 @@ function OptionsMenu() {
             multiple
             autoHighlight
             limitTags={4}
-            id="tags-standard"
+            onChange={props.onChange}
             options={['React', 'Python', 'COBOL']}
             noOptionsText="No technologies found."
             renderInput={params => (
