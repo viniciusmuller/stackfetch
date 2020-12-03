@@ -4,6 +4,7 @@ footer {
   padding: 2rem 0;
   position: absolute;
   width: 100%;
+  bottom: 0;
 
   background-color: $footer-bg-color;
 
@@ -16,20 +17,27 @@ footer {
       color: inherit;
     }
 
+    .footer-app-logo {
+
+      @media (max-width: $s-mobile) {
+        width: 15rem;
+      }
+    }
+
     .footer-repo-link {
       text-decoration: none;
     }
 
     .footer-gh-icon {
-      fill: $footer-svg-color;
+      fill: $footer-gh-icon-color;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $tablet) {
       padding: 1.5rem 0;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $tablet) {
     flex-direction: column;
   }
 }
