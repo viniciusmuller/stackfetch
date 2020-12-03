@@ -31,6 +31,10 @@
       color: $not-found-button-text-color;
 
       font-size: 1.3rem;
+
+      &:hover {
+        background: $not-found-button-hover-color;
+      }
     }
   }
 }
