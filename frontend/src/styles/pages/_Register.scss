@@ -1,0 +1,17 @@
+#register {
+  padding-bottom: 18rem;
+  position: relative;
+
+  .register-content {
+    margin: auto;
+    width: 50%;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+
+    @media (max-width: $tablet) {
+      margin-bottom: 25rem;
+      width: 90%;
+    }
+  }
+}

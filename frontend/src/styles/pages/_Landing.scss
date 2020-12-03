@@ -1,0 +1,108 @@
+#landing {
+  @include flex;
+  padding-top: 7rem;
+
+  .undraw-landing {
+
+    svg {
+      width: 50rem;
+
+      @media (max-width: $laptop) {
+        width: 35rem;
+      }
+
+      @media (max-width: $tablet) {
+        @include width-height(25rem, 10rem);
+        padding: 2rem 0;
+      }
+
+      @media (max-width: $mobile) {
+        width: 20rem;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      padding-top: 1rem;
+    }
+  }
+
+  .landing-text {
+    padding-bottom: 4rem;
+    margin-left: 8rem;
+
+    h1 {
+      font-size: 5rem;
+      color: $landing-text-color;
+    }
+
+    h2 {
+      color: $landing-text-color;
+      font-size: 2rem;
+      max-width: 35rem;
+      padding-top: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .get-started-button {
+      background-color: $landing-button-color;
+      color: $landing-button-text-color;
+      margin-top: 2rem;
+      width: 10rem;
+
+      text-transform: none;
+      border-radius: 3rem;
+      font-size: 1.4rem;
+
+      &:hover {
+        background-color: $landing-button-hover-color;
+        color: $landing-button-hover-text-color;
+      }
+    }
+
+    @media (max-width: $laptop) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        max-width: 20rem;
+      }
+    }
+
+    @media (max-width: $tablet) {
+
+      margin-left: 0;
+      padding-top: 2rem;
+      text-align: center;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        max-width: 20rem;
+      }
+    }
+  }
+
+  @media (max-width: $screen) {
+    padding-top: 9rem;
+  }
+
+  @media (max-width: $laptop) {
+    padding-bottom: 5rem;
+  }
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
+
+  @media (max-width: $mobile) {
+    padding-top: 5rem;
+  }
+}

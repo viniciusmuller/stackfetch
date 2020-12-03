@@ -1,0 +1,46 @@
+#about {
+  padding-bottom: 18rem;
+  position: relative;
+
+  .about-content {
+    margin: auto;
+    width: 50%;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    background-color: $about-section-bg-color;
+
+    h2 {
+      padding-top: 1rem;
+    }
+
+    h3 {
+      padding-top: 0.3rem;
+      padding-left: 0.5rem;
+    }
+
+    p {
+      padding-left: 1rem;
+    }
+
+    .about-link-app {
+      text-decoration: none;
+
+      button {
+        margin-top: 1rem;
+        text-transform: none;
+        font-size: 1.12rem;
+        color: $about-button-text-color;
+        background-color: $about-button-color;
+
+        &:hover {
+            background-color: $about-button-hover-color;
+        }
+      }
+    }
+
+    @media (max-width: $tablet) {
+      margin-bottom: 25rem;
+      width: 90%;
+    }
+  }
+}
