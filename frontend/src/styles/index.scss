@@ -9,8 +9,13 @@
 // Components
 @import 'components/Footer';
 @import 'components/OptionsMenu';
+@import 'components/TopAppLogo';
 @import 'components/UserCard';
+@import 'components/Search';
 
 // Pages
+@import 'pages/Landing';
+@import 'pages/Register';
+@import 'pages/About';
 @import 'pages/App';
 @import 'pages/NotFound';
