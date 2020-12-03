@@ -1,12 +1,10 @@
-import { FaSearch } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import { useState } from 'react';
 
+import TopAppLogo from '../components/TopAppLogo';
 import OptionsMenu from '../components/OptionsMenu';
+import Search from '../components/Search';
 import UserCard from '../components/UserCard';
 import Footer from '../components/Footer';
-import { ReactComponent as AppLogo } from '../assets/svg/appLogo.svg';
 
 const user = {
   name: 'Vinícius Müller',
@@ -30,28 +28,34 @@ const user = {
 }
 
 function App() {
+  const [userValue, setUserValue] = useState('');
+  const [selectedTechnologies, setSelectedTechnologies] = useState(['']);
+
+  // TODO finish backend filter API and consume it here
+
+  function search() {
+    console.log(userValue);
+    console.log(selectedTechnologies);
+  }
+
+  function alo(e: React.ChangeEvent) {
+    setUserValue((e.target as HTMLInputElement).value);
+  }
+
+  function epa(_: any, technologies: string[]) {
+    setSelectedTechnologies(technologies);
+  }
+
   return (
     <>
-      <OptionsMenu />
+      <OptionsMenu onChange={epa}/>
+
       <div id="app">
-
-        <div id="logo-wrapper">
-          <Link to="/">
-            <AppLogo className="main-app-logo" />
-          </Link>
-        </div>
-
-        <div id="search">
-          <TextField
-            type="text"
-            className="search-users-input"
-            placeholder="Search for some cool people..."
-          />
-          <Button className="search-button">
-            <FaSearch size="1.4rem" />
-          </Button>
-        </div>
-
+        <TopAppLogo />
+        <Search
+          onClick={search}
+          onChange={alo}
+        />
         <div id="users">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(i => {
               return (
