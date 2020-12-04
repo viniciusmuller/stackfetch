@@ -1,19 +1,8 @@
-interface Technology {
-  name: string;
-  color: string;
-}
-
-interface User {
-  name: string;
-  age: number;
-  about: string;
-  gitHubUsername: string;
-  technologies: Technology[];
-}
+import { User } from '../common/types';
 
 function UserCard(props: User) {
   return (
-    <div className="user">
+    <div className="user-card">
       <img
         src={`https://avatars.githubusercontent.com/${props.gitHubUsername}`}
         className="gh-profile-pic"
@@ -24,10 +13,10 @@ function UserCard(props: User) {
       </p>
       <div className="user-stack">
         {
-          props.technologies.map((tech, i) => {
+          props.stack.map(tech => {
             return (
               <div
-                key={i.toString()}
+                key={tech.id}
                 className="user-technology"
                 style={{
                   border: `0.15rem solid ${tech.color}`,

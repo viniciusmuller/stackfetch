@@ -13,7 +13,11 @@ function Footer() {
         </p>
         <p>
           Made by
-          <a href="https://github.com/arcticlimer">
+          <a
+            href="https://github.com/arcticlimer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             @arcticlimer
           </a>
           , 2020.
@@ -33,16 +37,16 @@ function Footer() {
       </div>
       <div className="footer-section">
         <a
-          href="https://github.com/arcticlimer/stack-app"
+          href="https://github.com/arcticlimer/stackfetch"
           target="_blank"
           rel="noreferrer noopener"
           className="footer-repo-link"
         >
           <p>
-            Open Source project at<br />GitHub&trade;
+            Open Source project at GitHub
           </p>
           <FaGithub
-            size="2.5rem"
+            size="2.75rem"
             className="footer-gh-icon"
           />
         </a>

@@ -1,11 +1,12 @@
 import { FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import TechnologyInput from './TechnologyInput';
+import { Technology } from '../common/types';
+
 interface OptionsMenuProps {
-  onChange: (event: React.ChangeEvent<{}>, value: string[]) => void;
+  onTechsChange: (event: React.ChangeEvent<{}>, value: Technology[]) => void;
 }
 
 function OptionsMenu(props: OptionsMenuProps) {
@@ -20,21 +21,7 @@ function OptionsMenu(props: OptionsMenuProps) {
       <div className="options-flex">
         <div className="options">
           <h2>Filter users</h2>
-          <Autocomplete
-            multiple
-            autoHighlight
-            limitTags={4}
-            onChange={props.onChange}
-            options={['React', 'Python', 'COBOL']}
-            noOptionsText="No technologies found."
-            renderInput={params => (
-              <TextField
-                {...params}
-                variant="standard"
-                label="Technologies"
-              />
-            )}
-          />
+          <TechnologyInput onChange={props.onTechsChange} />
           <div className="reg-button-wrapper">
             <h2>Wanna show your skills to the world?</h2>
             <Link
