@@ -4,6 +4,7 @@ export default {
 
   render(tech: Technology): Object {
     return {
+      id: tech.id,
       name: tech.name,
       color: tech.color
     };

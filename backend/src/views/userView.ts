@@ -5,6 +5,7 @@ export default {
 
   render(user: User): Object {
     return {
+      id: user.id,
       name: user.name,
       age: user.age,
       about: user.about,
