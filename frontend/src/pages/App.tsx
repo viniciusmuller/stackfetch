@@ -1,71 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
+import { Technology, User } from '../common/types';
 import TopAppLogo from '../components/TopAppLogo';
 import OptionsMenu from '../components/OptionsMenu';
-import Search from '../components/Search';
+import SearchBar from '../components/SearchBar';
 import UserCard from '../components/UserCard';
 import Footer from '../components/Footer';
-
-const user = {
-  name: 'Vinícius Müller',
-  age: 16,
-  about: 'eu so mo top mano',
-  gitHubUsername: 'arcticlimer',
-  technologies: [
-    {
-      name: 'Python',
-      color: '#3E7BAC'
-    },
-    {
-      name: 'Elixir',
-      color: '#6B5375'
-    },
-    {
-      name: 'Typescript',
-      color: '#2F74C0'
-    }
-  ]
-}
+import api from '../services/api';
 
 function App() {
-  const [userValue, setUserValue] = useState('');
-  const [selectedTechnologies, setSelectedTechnologies] = useState(['']);
+  const [userSearchValue, setUserSearchValue] = useState('');
+  const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>();
 
-  // TODO finish backend filter API and consume it here
+  const [users, setUsers] = useState<User[]>();
 
-  function search() {
-    console.log(userValue);
-    console.log(selectedTechnologies);
-  }
-
-  function alo(e: React.ChangeEvent) {
-    setUserValue((e.target as HTMLInputElement).value);
-  }
-
-  function epa(_: any, technologies: string[]) {
-    setSelectedTechnologies(technologies);
-  }
+  useEffect(() => {
+    api.get('/users')
+      .then(res => setUsers(res.data))
+      .catch(err => console.error(err));
+  }, []);
 
   return (
     <>
-      <OptionsMenu onChange={epa}/>
+      <OptionsMenu onTechsChange={(_, techs) => setSelectedTechnologies(techs)}/>
 
       <div id="app">
         <TopAppLogo />
-        <Search
-          onClick={search}
-          onChange={alo}
+        <SearchBar
+          onClick={() => {
+            console.log(selectedTechnologies, userSearchValue);
+            // TODO fetch API here
+          }}
+          onChange={e => {
+            setUserSearchValue((e.target as HTMLInputElement).value)
+          }}
         />
         <div id="users">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(i => {
-              return (
-                <UserCard
-                  key={i.toString()}
-                  {...user}
-                />
-              );
-            })
-          }
+          {users ? users.map(user => <UserCard key={user.id} {...user} />)
+                 : <CircularProgress size={50} /> }
         </div>
         <Footer />
       </div>

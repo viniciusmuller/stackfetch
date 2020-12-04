@@ -10,16 +10,29 @@ function About() {
       <TopAppLogo />
       <div id="about">
         <div className="about-content">
-          {/* TODO improve about page */}
           <h1>About StackFetch</h1>
-          <h2>Stack</h2>
+
+          <h2>App Stack</h2>
+          <p>This app was made using TypeScript.</p>
           <h3>Frontend</h3>
-          <p>This app uses React, Sass, and some Material UI's components on the frontend and consumes the backend API.</p>
+          <p>
+            The frontend consumes the backend API and uses mainly:
+          </p>
+          <ul>
+            <li>React</li>
+            <li>Sass</li>
+            <li>Material UI</li>
+          </ul>
 
           <h3>Backend</h3>
           <p>
-            The backend is an RESTful API using the MVC project structuration, express.js for the server and TypeORM on the database.
+            The backend is an MVC structured RESTful API using mainly:
           </p>
+          <ul>
+            <li>Express</li>
+            <li>TypeORM</li>
+            <li>Yup</li>
+          </ul>
 
           <h2>Purpose</h2>
           <p>
@@ -29,7 +42,7 @@ function About() {
 
           <h2>Disclaimer</h2>
           <p>
-            It's discouraged for users registering any other accounts that not their own.
+            It's discouraged for users registering any other GitHub accounts that not their own.
           </p>
           <p>
             I do not take responsibility for any user misusage on the platform.
