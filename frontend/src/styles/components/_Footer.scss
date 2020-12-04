@@ -1,3 +1,4 @@
+// TODO fix footer positioning
 footer {
   @include flex;
 
@@ -29,6 +30,7 @@ footer {
     }
 
     .footer-gh-icon {
+      margin-top: 0.2rem;
       fill: $footer-gh-icon-color;
     }
 

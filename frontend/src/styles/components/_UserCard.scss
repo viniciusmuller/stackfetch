@@ -1,4 +1,4 @@
-.user {
+.user-card {
   width: $user-card-width;
 
   background-color: $user-bg-color;
@@ -53,6 +53,8 @@
       text-decoration: none;
       font-size: 1.3rem;
 
+      word-wrap: break-word;
+
       background-color: $user-gh-username-background-color;
       color: $user-gh-username-text-color;
 
@@ -70,6 +72,6 @@
   }
 
   &:hover {
-      transform: scale($user-grow-scale);
+    transform: scale($user-grow-scale);
   }
 } // user

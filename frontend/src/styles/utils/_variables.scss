@@ -10,78 +10,87 @@ $screen: 1920px;
 $l-screen: 2560px;
 $xl-screen: 3840px;
 
+
+// app main color pallete, note that some variables
+// use other black/white tones as their values
+$app-color-1: #9c53e6;
+$app-color-2: #bf7eff;
+$app-color-3: #d694fd;
+$app-details: #ffffff;
+
 // ----------------------- Landing -----------------------
 
-$landing-text-color: #ffffff;
+$landing-text-color: $app-details;
 
-$landing-button-color: #9c53e6;
-$landing-button-text-color: #ffffff;
-$landing-button-hover-color: #bf7eff;
-$landing-button-hover-text-color: #ffffff;
+$landing-button-color: $app-color-1;
+$landing-button-text-color: $app-details;
+$landing-button-hover-color: $app-color-2;
+$landing-button-hover-text-color: $app-details;
 
 // ----------------------- Options bar -----------------------
 $options-bar-width: 4rem;
 $options-bar-bg-color: #17191a;
 $options-bar-slide-speed: 200ms;
 
-$register-link-button-color: #9c53e6;
-$register-link-button-hover-color: #bf7eff;
-$register-link-button-text-color: #ffffff;
+$register-link-button-color: $app-color-1;
+$register-link-button-hover-color: $app-color-2;
+$register-link-button-text-color: $app-details;
 
-$cog-svg-color: #9c53e6;
+$cog-svg-color: $app-color-1;
 $cog-svg-rotation-speed: 200ms;
 
-$toggle-options-svg-color: #ffffff;
+$toggle-options-svg-color: $app-details;
 
-$technology-input-color: #ffffff;
-$technology-input-placeholder-color: #ffffff;
-$technology-input-underline-color: #ffffff;
-$technology-input-underline-hover-color: #d694fd;
+$technology-input-color: $app-details;
+$technology-input-placeholder-color: $app-details;
+$technology-input-underline-color: $app-details;
+$technology-input-underline-hover-color: $app-color-3;
 
-$technology-selected-bg-color: #9c53e6;;
-$technology-selected-text-color: #ffffff;
+$technology-selected-bg-color: #bf7eff;
+$technology-selected-text-color: $app-details;
 
 // ----------------------- Scrollbar -----------------------
-$scrollbar-thumb-color: #b691ff;
-$scrollbar-track-color: #101010;
+$scrollbar-thumb-color: $app-color-1;
+$scrollbar-track-color:  #202324;
 
 // ----------------------- Search -----------------------
-$search-button-svg-color: #a172ff;;
+$search-button-svg-color: #a172ff;
 $search-button-color: #353535;
 
-$search-input-color: #ffffff;
-$search-input-placeholder-color: #ffffff;
+$search-input-color: $app-details;
+$search-input-placeholder-color: $app-details;
 $search-input-underline-color: #d8d8d8;
-$search-input-underline-color-focus: #ffffff;
+$search-input-underline-color-focus: $app-details;
 
 // ----------------------- Users -----------------------
 $user-bg-color: #202324;
-$username-text-color: #ffffff;
+$username-text-color: $app-details;
 $user-gh-username-background-color: #1d1d1d;
-$user-gh-username-text-color: #d694fd;
+$user-gh-username-text-color: $app-color-3;
 $user-grow-speed: 100ms;
 $user-grow-scale: 1.09;
 $user-card-width: 16rem;
-
 $user-card-boxshadow-color: #181818;
+
+$loading-users-animation: $app-color-3;
 
 // ----------------------- Footer -----------------------
 $footer-bg-color: #131313;
-$footer-gh-icon-color: #ffffff;
-$footer-content-color: #ffffff;
+$footer-gh-icon-color: $app-details;
+$footer-content-color: $app-details;
 
 // ----------------------- Not found -----------------------
 $not-found-font-size: 4rem;
-$not-found-color: #ffffff;
-$not-found-button-text-color: #ffffff;
-$not-found-button-color: #9c53e6;
+$not-found-color: $app-details;
+$not-found-button-text-color: $app-details;
+$not-found-button-color: $app-color-1;
 $not-found-button-hover-color: #da90ff;
 
 // Register
 
 
 // About
-$about-section-bg-color: #ffffff;
-$about-button-text-color: rgb(255, 255, 255);
-$about-button-color: #9c53e6;
+$about-section-bg-color: $app-details;
+$about-button-text-color: $app-details;
+$about-button-color: $app-color-1;
 $about-button-hover-color: #da90ff;

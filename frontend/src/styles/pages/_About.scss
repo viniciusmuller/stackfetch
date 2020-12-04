@@ -22,11 +22,16 @@
       padding-left: 1rem;
     }
 
+    ul {
+      list-style-type: square;
+      margin-left: 2.5rem;
+    }
+
     .about-link-app {
       text-decoration: none;
 
       button {
-        margin-top: 1rem;
+        margin-top: 2rem;
         text-transform: none;
         font-size: 1.12rem;
         color: $about-button-text-color;

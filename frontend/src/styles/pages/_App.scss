@@ -6,6 +6,10 @@
     @include flex;
     padding-bottom: 13rem;
 
+    .MuiCircularProgress-circle {
+      stroke: $loading-users-animation;
+    }
+
     @media (max-width: $tablet) {
       padding-bottom: 40rem;
     }
