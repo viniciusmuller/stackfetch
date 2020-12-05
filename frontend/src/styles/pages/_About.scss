@@ -27,22 +27,6 @@
       margin-left: 2.5rem;
     }
 
-    .about-link-app {
-      text-decoration: none;
-
-      button {
-        margin-top: 2rem;
-        text-transform: none;
-        font-size: 1.12rem;
-        color: $about-button-text-color;
-        background-color: $about-button-color;
-
-        &:hover {
-            background-color: $about-button-hover-color;
-        }
-      }
-    }
-
     @media (max-width: $tablet) {
       margin-bottom: 25rem;
       width: 90%;

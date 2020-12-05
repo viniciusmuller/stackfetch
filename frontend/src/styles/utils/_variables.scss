@@ -17,6 +17,7 @@ $app-color-1: #9c53e6;
 $app-color-2: #bf7eff;
 $app-color-3: #d694fd;
 $app-details: #ffffff;
+$app-color-4: #747474;
 
 // ----------------------- Landing -----------------------
 
@@ -31,6 +32,8 @@ $landing-button-hover-text-color: $app-details;
 $options-bar-width: 4rem;
 $options-bar-bg-color: #17191a;
 $options-bar-slide-speed: 200ms;
+
+$options-bar-register-h2: $app-details;
 
 $register-link-button-color: $app-color-1;
 $register-link-button-hover-color: $app-color-2;
@@ -82,15 +85,32 @@ $footer-content-color: $app-details;
 // ----------------------- Not found -----------------------
 $not-found-font-size: 4rem;
 $not-found-color: $app-details;
+$not-found-h1-color: $app-details;
+$not-found-h2-color: $app-details;
 $not-found-button-text-color: $app-details;
 $not-found-button-color: $app-color-1;
 $not-found-button-hover-color: #da90ff;
 
-// Register
+// ----------------------- Forms -----------------------
+$form-input-underline-color: $app-color-1;
+$form-input-underline-color-hover: $app-color-1;
+$form-input-underline-color-focus: $app-color-2;
 
+$form-field-comment-color: $app-color-4;
+$form-technology-field-label-color: $app-color-4;
+$form-field-error-text-color: #ff002f;
 
-// About
+// ----------------------- Register -----------------------
+$register-bg-color: $app-details;
+
+$register-form-submit-color: $app-color-1;
+$register-form-submit-text-color: $app-details;
+$register-form-submit-color-hover: $app-color-2;
+
+// ----------------------- Back to app button -----------------------
+$back-to-app-button-text-color: $app-details;
+$back-to-app-button-color: $app-color-1;
+$back-to-app-button-hover-color: #da90ff;
+
+// ----------------------- About -----------------------
 $about-section-bg-color: $app-details;
-$about-button-text-color: $app-details;
-$about-button-color: $app-color-1;
-$about-button-hover-color: #da90ff;
