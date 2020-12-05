@@ -1,0 +1,33 @@
+.MuiAutocomplete-root {
+  width: 13rem;
+
+  label {
+    color: $form-technology-field-label-color !important;
+  }
+
+  .MuiChip-root {
+    color: $technology-selected-text-color;
+    background-color: $technology-selected-bg-color;
+  }
+
+  .MuiInput-underline {
+    &::after {
+      border-bottom: 3px solid $technology-input-underline-hover-color;
+    }
+  }
+}
+
+.register-form-submit {
+  margin-top: 2rem !important;
+  width: 6rem;
+
+  text-transform: none !important;
+  font-size: 1.1rem !important;
+
+  background: $register-form-submit-color !important;
+  color: $register-form-submit-text-color !important;
+
+  &:hover {
+    background: $register-form-submit-color-hover !important;
+  }
+}

@@ -1,0 +1,24 @@
+.form-label {
+  display: block;
+  padding-top: 1.2rem;
+}
+
+.form-input-field {
+  width: 13rem;
+
+  .MuiInput-underline {
+    &::after {
+      border-bottom: 2px solid $form-input-underline-color-focus;
+    }
+  }
+}
+
+.field-error {
+  color: $form-field-error-text-color;
+}
+
+.field-comment {
+  font-size: 0.9rem;
+  padding-top: 0.5rem;
+  color: $form-field-comment-color;
+}

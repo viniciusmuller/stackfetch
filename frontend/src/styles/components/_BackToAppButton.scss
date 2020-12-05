@@ -1,0 +1,17 @@
+
+.back-to-app {
+  text-decoration: none;
+
+  button {
+    text-transform: none;
+    font-size: 1.12rem;
+
+    margin-top: 2rem;
+    color: $back-to-app-button-text-color;
+    background-color: $back-to-app-button-color;
+
+    &:hover {
+      background-color: $back-to-app-button-hover-color;
+    }
+  }
+}
