@@ -9,7 +9,7 @@ function NotFound() {
 
       <Link to="/app">
         <Button>
-          Back to the routes!
+          Back to the routes
         </Button>
       </Link>
     </div>

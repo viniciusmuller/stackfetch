@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-
 import TopAppLogo from '../components/TopAppLogo';
+import BackToAppButton from '../components/BackToAppButton';
 import Footer from '../components/Footer';
 
 function About() {
@@ -21,6 +19,7 @@ function About() {
           <ul>
             <li>React</li>
             <li>Sass</li>
+            <li>Formik</li>
             <li>Material UI</li>
           </ul>
 
@@ -47,12 +46,7 @@ function About() {
           <p>
             I do not take responsibility for any user misusage on the platform.
           </p>
-
-          <Link to="/app" className="about-link-app">
-            <Button>
-              Back to the app
-            </Button>
-          </Link>
+          <BackToAppButton />
         </div>
         <Footer />
       </div>

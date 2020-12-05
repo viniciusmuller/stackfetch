@@ -10,13 +10,16 @@ import Footer from '../components/Footer';
 import api from '../services/api';
 
 function App() {
+  // User search values
   const [userSearchValue, setUserSearchValue] = useState('');
-  const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>();
+  const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>([]);
 
+  // Page content values
   const [users, setUsers] = useState<User[]>();
 
   useEffect(() => {
     api.get('/users')
+      // TODO paginate users backwards here
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -24,13 +27,18 @@ function App() {
   return (
     <>
       <OptionsMenu onTechsChange={(_, techs) => setSelectedTechnologies(techs)}/>
-
       <div id="app">
         <TopAppLogo />
         <SearchBar
           onClick={() => {
-            console.log(selectedTechnologies, userSearchValue);
             // TODO fetch API here
+            setTimeout(() => {
+              let search = {
+                username: userSearchValue,
+                stack: selectedTechnologies.map(t => t.id)
+              }
+              console.log(search);
+            }, 1000);
           }}
           onChange={e => {
             setUserSearchValue((e.target as HTMLInputElement).value)
