@@ -17,7 +17,6 @@ export class populateTechnologies1606443189684 implements MigrationInterface {
           name: tech,
           color: color
         })
-        .onConflict('("name") DO NOTHING')
         .execute()
     }
   }

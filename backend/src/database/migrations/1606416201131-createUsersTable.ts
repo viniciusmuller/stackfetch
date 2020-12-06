@@ -29,7 +29,7 @@ export class createUsersTable1606416201131 implements MigrationInterface {
           length: '300'
         },
         {
-          name: 'gitHubUsername',
+          name: 'github_username',
           type: 'varchar',
           length: '39',
           isUnique: true
