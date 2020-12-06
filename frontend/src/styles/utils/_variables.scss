@@ -20,7 +20,6 @@ $app-details: #ffffff;
 $app-color-4: #747474;
 
 // ----------------------- Landing -----------------------
-
 $landing-text-color: $app-details;
 
 $landing-button-color: $app-color-1;
@@ -49,7 +48,7 @@ $technology-input-placeholder-color: $app-details;
 $technology-input-underline-color: $app-details;
 $technology-input-underline-hover-color: $app-color-3;
 
-$technology-selected-bg-color: #bf7eff;
+$technology-selected-bg-color: $app-color-2;
 $technology-selected-text-color: $app-details;
 
 // ----------------------- Scrollbar -----------------------
@@ -91,6 +90,9 @@ $not-found-button-text-color: $app-details;
 $not-found-button-color: $app-color-1;
 $not-found-button-hover-color: #da90ff;
 
+// -----------------------  No users found -----------------------
+$no-users-found-text-color: $app-details;
+
 // ----------------------- Forms -----------------------
 $form-input-underline-color: $app-color-1;
 $form-input-underline-color-hover: $app-color-1;
@@ -106,6 +108,8 @@ $register-bg-color: $app-details;
 $register-form-submit-color: $app-color-1;
 $register-form-submit-text-color: $app-details;
 $register-form-submit-color-hover: $app-color-2;
+$register-form-technology-input-color: $app-color-4;
+$register-form-technology-input-focus-color: $app-color-2;
 
 // ----------------------- Back to app button -----------------------
 $back-to-app-button-text-color: $app-details;

@@ -1,31 +1,32 @@
-.MuiAutocomplete-root {
-  width: 10rem;
+.tech-input {
+  .MuiAutocomplete-root {
+    width: 10rem;
 
-  .MuiSvgIcon-root {
-    fill: $toggle-options-svg-color;
-  }
-
-  .MuiChip-root {
-    color: $technology-selected-text-color;
-    background-color: $technology-selected-bg-color;
-  }
-
-  .MuiInput-underline {
-
-    &::before {
-      border-bottom: 1px solid $technology-input-underline-color;
+    .MuiSvgIcon-root {
+      fill: $toggle-options-svg-color;
     }
 
-    &::after {
-      border-bottom: 3px solid $technology-input-underline-hover-color;
+    .MuiChip-root {
+      color: $technology-selected-text-color;
+      background-color: $technology-selected-bg-color;
     }
-  }
 
-  label {
-    color: $technology-input-placeholder-color;
-  }
+    .MuiInput-underline {
+      &::before {
+        border-bottom: 1px solid $technology-input-underline-color;
+      }
 
-  input {
-    color: $technology-input-color;
+      &::after {
+        border-bottom: 3px solid $technology-input-underline-hover-color;
+      }
+    }
+
+    label {
+      color: $technology-input-placeholder-color;
+    }
+
+    input {
+      color: $technology-input-color;
+    }
   }
 }

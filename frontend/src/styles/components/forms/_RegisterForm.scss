@@ -1,33 +1,45 @@
-.MuiAutocomplete-root {
-  width: 13rem;
+.register-form {
+  .MuiAutocomplete-root {
+    width: 13rem;
 
-  label {
-    color: $form-technology-field-label-color !important;
-  }
+    label {
+      color: $form-technology-field-label-color;
+    }
 
-  .MuiChip-root {
-    color: $technology-selected-text-color;
-    background-color: $technology-selected-bg-color;
-  }
+    input {
+      color: $form-technology-field-label-color;
+    }
 
-  .MuiInput-underline {
-    &::after {
-      border-bottom: 3px solid $technology-input-underline-hover-color;
+    .MuiInput-underline {
+      &::before {
+        border-bottom: 1px solid $register-form-technology-input-color;
+      }
+
+      &::after {
+        border-bottom: 3px solid $register-form-technology-input-focus-color;
+      }
     }
   }
-}
 
-.register-form-submit {
-  margin-top: 2rem !important;
-  width: 6rem;
+  .register-form-loading {
+    .MuiCircularProgress-circle {
+      // TODO change color
+      stroke: $loading-users-animation;
+    }
+  }
 
-  text-transform: none !important;
-  font-size: 1.1rem !important;
+  .register-form-submit {
+    width: 6rem;
+    margin-top: 2.5rem;
 
-  background: $register-form-submit-color !important;
-  color: $register-form-submit-text-color !important;
+    text-transform: none;
+    font-size: 1.1rem;
 
-  &:hover {
-    background: $register-form-submit-color-hover !important;
+    background: $register-form-submit-color;
+    color: $register-form-submit-text-color;
+
+    &:hover {
+      background: $register-form-submit-color-hover;
+    }
   }
 }

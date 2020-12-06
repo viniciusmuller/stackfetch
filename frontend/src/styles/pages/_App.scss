@@ -1,5 +1,6 @@
 #app {
   margin-left: $options-bar-width;
+  min-height: 100vh;
   position: relative;
 
   #users {
