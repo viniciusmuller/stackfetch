@@ -7,17 +7,17 @@ export default class User {
 
   @PrimaryGeneratedColumn()
   id: number;
-    
+
   @Column()
   name: string;
-  
+
   @Column()
   age: number;
-  
+
   @Column()
   about: string;
 
-  @Column()
+  @Column({ name:'github_username' })
   gitHubUsername: string;
 
   @ManyToMany(() => Technology, technology => technology.users)
