@@ -6,6 +6,7 @@ import BackToAppButton from '../components/BackToAppButton';
 import Footer from '../components/Footer';
 
 function Register() {
+  // TODO parse other backend errors
   const [success, setSuccess] = useState(false);
 
   return (
@@ -16,7 +17,11 @@ function Register() {
           {success ? (
             <>
               <h1>Thanks for registering!</h1>
-              <p>...</p>
+              <p>
+                We hope that you can connect with others developers through this application.
+                <br />
+                Never stop learning!
+              </p>
               <BackToAppButton />
             </>
           ) : (

@@ -5,6 +5,7 @@ import { Technology, User } from '../common/types';
 import TopAppLogo from '../components/TopAppLogo';
 import OptionsMenu from '../components/OptionsMenu';
 import SearchBar from '../components/SearchBar';
+import NoUsers from '../components/NoUsers';
 import UserCard from '../components/UserCard';
 import Footer from '../components/Footer';
 import api from '../services/api';
@@ -19,7 +20,6 @@ function App() {
 
   useEffect(() => {
     api.get('/users')
-      // TODO paginate users backwards here
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -45,8 +45,15 @@ function App() {
           }}
         />
         <div id="users">
-          {users ? users.map(user => <UserCard key={user.id} {...user} />)
-                 : <CircularProgress size={50} /> }
+          {/* Check if users is set (!== undefined). If it is not display
+              a loading animation. If it is, check if the users object contains
+              something. If not, render NoUsers component, otherwise render the
+              users cards on the page. */}
+          {(users
+            && (users.length > 0
+            ? users.map(user => <UserCard key={user.id} {...user} />)
+            : <NoUsers />)
+          ) || <CircularProgress size={50} />}
         </div>
         <Footer />
       </div>

@@ -18,8 +18,10 @@ function About() {
           </p>
           <ul>
             <li>React</li>
-            <li>Sass</li>
+            <li>Axios</li>
             <li>Formik</li>
+            <li>Yup</li>
+            <li>Sass</li>
             <li>Material UI</li>
           </ul>
 
@@ -29,8 +31,9 @@ function About() {
           </p>
           <ul>
             <li>Express</li>
-            <li>TypeORM</li>
             <li>Yup</li>
+            <li>Axios</li>
+            <li>TypeORM</li>
           </ul>
 
           <h2>Purpose</h2>
