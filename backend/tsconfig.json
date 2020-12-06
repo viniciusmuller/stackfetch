@@ -8,7 +8,9 @@
       "@database/*": ["./src/database/*"],
       "@models/*": ["./src/models/*"],
       "@errors/*": ["./src/errors/*"],
-      "@views/*": ["./src/views/*"]
+      "@views/*": ["./src/views/*"],
+      "@validation/*": ["./src/validation/*"],
+      "@services/*": ["./src/services/*"]
     },
 
     "resolveJsonModule": true,
