@@ -10,7 +10,7 @@ function UserTechnologyField(props: UserTechnologyFieldProps) {
   const [field, meta, helpers] = useField(props.name);
 
   return (
-    <>
+    <div className="user-techs-field">
       <label>
         {props.labelMessage}
       </label>
@@ -18,7 +18,7 @@ function UserTechnologyField(props: UserTechnologyFieldProps) {
         helpers.setValue(techs.map(t => t.id))}
        } />
       {meta.error && <p className="field-error">{meta.error}</p>}
-    </>
+    </div>
   );
 }
 

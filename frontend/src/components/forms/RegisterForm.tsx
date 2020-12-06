@@ -1,9 +1,11 @@
 import { Formik, Form } from 'formik';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import FormField from './FormField';
 import UserTechnologyField from './UserTechnologyField';
+import userSchema from '../../validation/userSchema';
 import api from '../../services/api';
 
 interface RegisterFormProps {
@@ -11,6 +13,7 @@ interface RegisterFormProps {
 }
 
 function RegisterForm(props: RegisterFormProps) {
+
   return (
     <Formik
       initialValues={{
@@ -20,21 +23,20 @@ function RegisterForm(props: RegisterFormProps) {
         gitHubUsername: '',
         stack: []
       }}
-      validate={values => {
-        // TODO validate on clientside
-        let errors = {};
-        return errors;
-      }}
+      validationSchema={userSchema}
       onSubmit={(values, { setSubmitting, setErrors }) => {
         api.post('/users', values)
-          // If no errors occurs, means our user was registered on the system
+          // If no errors occurs, user was registered on the system.
           .then(() => props.onSucess())
-          .catch(err => setErrors(err.response.data.errors));
-          setSubmitting(false)
+          .catch(err => setErrors(err.response.data.errors))
+          .finally(() => setSubmitting(false));
       }}
     >
     {({ isSubmitting }) => (
-      <Form autoComplete="off">
+      <Form
+        className="register-form"
+        autoComplete="off"
+      >
         <FormField
           name="name"
           labelMessage="Your name"
@@ -68,6 +70,12 @@ function RegisterForm(props: RegisterFormProps) {
         >
           Submit
         </Button>
+        {/* TODO improve loading spinner */}
+        {isSubmitting && (
+          <div className="register-form-loading" >
+            <CircularProgress size="2rem" />
+          </div>
+        )}
       </Form>
     )}
     </Formik>

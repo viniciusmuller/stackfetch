@@ -11,7 +11,6 @@ interface TechInputProps {
 }
 
 function TechnologyInput(props: TechInputProps) {
-
   const [technologies, setTechnologies] = useState<Technology[]>([]);
 
   // Loading all available technologies on mount
@@ -22,22 +21,24 @@ function TechnologyInput(props: TechInputProps) {
   }, []);
 
   return (
-    <Autocomplete
-      multiple
-      autoHighlight
-      limitTags={4}
-      onChange={props.onChange}
-      getOptionLabel={(tech: Technology) => tech.name}
-      options={technologies}
-      noOptionsText="No technologies found."
-      renderInput={params => (
-        <TextField
-          {...params}
-          variant="standard"
-          label="Technologies"
-        />
-      )}
-    />
+    <div className="tech-input">
+      <Autocomplete
+        multiple
+        autoHighlight
+        limitTags={4}
+        onChange={props.onChange}
+        getOptionLabel={(tech: Technology) => tech.name}
+        options={technologies}
+        noOptionsText="No technologies found."
+        renderInput={params => (
+          <TextField
+            {...params}
+            variant="standard"
+            label="Technologies"
+          />
+        )}
+      />
+    </div>
   );
 }
 
