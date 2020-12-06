@@ -29,17 +29,6 @@ const errorHandler: ErrorRequestHandler = (error, request, response, next) => {
     });
   }
 
-  // GitHub username already exists on the database
-  if (
-      error instanceof QueryFailedError 
-      && error.message.match(/^SQLITE_CONSTRAINT.+gitHubUsername$/)
-  ) {
-      return response.status(409).json({
-        message: 'GitHub username already registered.'
-      }
-    );
-  }
-
   // Unknown application error
   return response.status(500).json({ message: 'Internal server error' });
 }
