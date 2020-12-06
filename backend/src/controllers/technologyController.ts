@@ -5,7 +5,7 @@ import Technology from '@models/technology';
 import TechnologyView from '@views/technologyView';
 
 export default {
-  async index (request: Request, response: Response) {
+  async index (_: Request, response: Response) {
     const techRepository = getRepository(Technology);
 
     const technologies = await techRepository.find();
