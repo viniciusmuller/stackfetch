@@ -10,5 +10,6 @@ export interface User {
   age: number;
   about: string;
   gitHubUsername: string;
+  registeredAt: string;
   stack: Technology[];
 }
