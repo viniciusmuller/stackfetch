@@ -3,7 +3,7 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 // technologies.json adapted from https://github.com/doda/github-language-colors
 import technologiesJSON from '../technologies.json';
 
-export class populateTechnologies1606443189684 implements MigrationInterface {
+export class populateTechnologies1607232855182 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
 
@@ -33,5 +33,5 @@ export class populateTechnologies1606443189684 implements MigrationInterface {
       .manager
       // Resetting sqlite autoincrement in order to preserve jointable content
       .query('DELETE FROM sqlite_sequence WHERE name = "technologies"')
-    }
+  }
 }
