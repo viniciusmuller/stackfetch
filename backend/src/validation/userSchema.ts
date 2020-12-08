@@ -8,7 +8,11 @@ import gitHubApi from '@services/gitHubApi';
 // since yup's min method doesn't work on arrays
 Yup.addMethod<Yup.ArraySchema<any>>(Yup.array, 'minArray',
   function(min: number, message: string) {
-    return this.test('min-array', message, value => value!.length >= min);
+    return this.test('min-array', message,
+      function(value) {
+        if (!value) return false;
+        return value.length >= min;
+    });
   }
 );
 
@@ -37,10 +41,10 @@ Yup.addMethod<Yup.StringSchema>(Yup.string, 'availableUsername',
       function(value) {
         return new Promise((resolve, _) => {
           getRepository(User)
-          .find({ where: { gitHubUsername: value }})
-          // Inverting results length boolean,
-          // e.g: !1 = false, !0 = true;
-          .then(result => resolve(!result.length))
+            .createQueryBuilder('user')
+            .where('user.github_username = :name', { name: value })
+            .getCount()
+            .then(result => resolve(result == 0))
         });
       }
     );
@@ -63,7 +67,7 @@ const userSchema = Yup.object().shape({
   about: Yup.string()
     .required('About is required.')
     .min(20, 'About must contain at least 20 characters.')
-    .max(300, 'About must contain at most 300 characters.'),
+    .max(200, 'About must contain at most 200 characters.'),
 
   gitHubUsername: Yup.string()
     .required('GitHub username is required.')
@@ -75,6 +79,7 @@ const userSchema = Yup.object().shape({
   stack: Yup.array()
     .typeError('Stack must be an array.')
     .required('Stack is required.')
+    .of(Yup.number())
     .minArray(1, 'Stack must contain at least one technology.')
     .max(7, 'Stack must contain at most 7 technologies')
   }
