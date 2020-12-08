@@ -69,8 +69,8 @@ $user-bg-color: #202324;
 $username-text-color: $app-details;
 $user-gh-username-background-color: #1d1d1d;
 $user-gh-username-text-color: $app-color-3;
-$user-grow-speed: 100ms;
-$user-grow-scale: 1.09;
+$user-card-animation-speed: 500ms;
+$user-card-grow-scale: 1.1;
 $user-card-width: 16rem;
 $user-card-boxshadow-color: #181818;
 
@@ -88,7 +88,7 @@ $not-found-h1-color: $app-details;
 $not-found-h2-color: $app-details;
 $not-found-button-text-color: $app-details;
 $not-found-button-color: $app-color-1;
-$not-found-button-hover-color: #da90ff;
+$not-found-button-hover-color: $app-color-2;
 
 // -----------------------  No users found -----------------------
 $no-users-found-text-color: $app-details;
@@ -114,7 +114,10 @@ $register-form-technology-input-focus-color: $app-color-2;
 // ----------------------- Back to app button -----------------------
 $back-to-app-button-text-color: $app-details;
 $back-to-app-button-color: $app-color-1;
-$back-to-app-button-hover-color: #da90ff;
+$back-to-app-button-hover-color: $app-color-2;
 
 // ----------------------- About -----------------------
 $about-section-bg-color: $app-details;
+
+// ----------------------- Load users button -----------------------
+$load-users-button-color: $app-color-3;
