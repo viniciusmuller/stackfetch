@@ -10,6 +10,7 @@ export default {
       age: user.age,
       about: user.about,
       gitHubUsername: user.gitHubUsername,
+      registeredAt: user.registeredAt,
       stack: TechnologyViewModel.renderMany(user.technologies)
     };
   },
