@@ -21,25 +21,32 @@
     }
   }
 
-  .register-form-loading {
-    .MuiCircularProgress-circle {
-      // TODO change color
-      stroke: $loading-users-animation;
+  .submit-button-wrapper {
+    position: relative;
+
+    .register-form-loading {
+      position: absolute;
+      display: inline-block;
+      top: 2.65rem;
+      left: 7rem;
+      .MuiCircularProgress-circle {
+        stroke: $loading-users-animation;
+      }
     }
-  }
 
-  .register-form-submit {
-    width: 6rem;
-    margin-top: 2.5rem;
+    .register-form-submit {
+      width: 6rem;
+      margin-top: 2.5rem;
 
-    text-transform: none;
-    font-size: 1.1rem;
+      text-transform: none;
+      font-size: 1.1rem;
 
-    background: $register-form-submit-color;
-    color: $register-form-submit-text-color;
+      background: $register-form-submit-color;
+      color: $register-form-submit-text-color;
 
-    &:hover {
-      background: $register-form-submit-color-hover;
+      &:hover {
+        background: $register-form-submit-color-hover;
+      }
     }
   }
 }
