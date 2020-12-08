@@ -20,6 +20,12 @@ export default class User {
   @Column({ name:'github_username' })
   gitHubUsername: string;
 
+  @Column('datetime', {
+    name:'registered_at',
+    default: () => 'CURRENT_TIMESTAMP'
+  })
+  registeredAt: string;
+
   @ManyToMany(() => Technology, technology => technology.users)
   @JoinTable()
   technologies: Technology[];
