@@ -1,14 +1,11 @@
 import { ErrorRequestHandler } from 'express';
-import { QueryFailedError } from 'typeorm';
 import { ValidationError } from 'yup';
 
 interface ValidationErrors {
   [key: string]: string[];
 }
 
-const errorHandler: ErrorRequestHandler = (error, request, response, next) => {
-  console.log(error);
-
+const errorHandler: ErrorRequestHandler = (error, _, response, __) => {
   // Request didn't validate
   if (error instanceof ValidationError) {
 
@@ -16,7 +13,7 @@ const errorHandler: ErrorRequestHandler = (error, request, response, next) => {
     error.inner.forEach(err => errors[err.path] = err.errors);
 
     return response.status(422).json({
-      message: 'Validation failed',
+      message: 'Validation failed.',
       errors
     });
   }
@@ -24,13 +21,13 @@ const errorHandler: ErrorRequestHandler = (error, request, response, next) => {
   // Bad formatted user JSON request
   if (error instanceof SyntaxError && error.message.match(/JSON/)) {
     return response.status(400).json({
-      message: 'Invalid request',
+      message: 'Invalid request.',
       error: error.message
     });
   }
-
-  // Unknown application error
-  return response.status(500).json({ message: 'Internal server error' });
+  // If it's an unknown error, logs it and return internal server error.
+  console.log(error);
+  return response.status(500).json({ message: 'Internal server error.' });
 }
 
 export default errorHandler;
