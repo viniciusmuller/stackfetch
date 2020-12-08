@@ -11,6 +11,12 @@
       stroke: $loading-users-animation;
     }
 
+    // This class is used for breaking the loading users button
+    // to the next flex column
+    .load-users-break {
+      flex-basis: 100%;
+    }
+
     @media (max-width: $tablet) {
       padding-bottom: 40rem;
     }
