@@ -10,8 +10,11 @@
       "@errors/*": ["./src/errors/*"],
       "@views/*": ["./src/views/*"],
       "@validation/*": ["./src/validation/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@config/*": ["./src/config/*"]
     },
+
+    "typeRoots": ["./types", "./node_modules/@types"],
 
     "resolveJsonModule": true,
 
