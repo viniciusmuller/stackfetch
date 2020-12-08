@@ -11,8 +11,10 @@
   "dependencies": {
     "axios": "^0.21.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "express-rate-limit": "^5.2.3",
     "morgan": "^1.10.0",
     "sqlite3": "^5.0.0",
     "typeorm": "^0.2.29",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.8",
     "@types/express": "^4.17.9",
+    "@types/express-rate-limit": "^5.1.0",
     "@types/morgan": "^1.9.2",
     "@types/yup": "^0.29.9",
     "ts-node-dev": "^1.0.0",
