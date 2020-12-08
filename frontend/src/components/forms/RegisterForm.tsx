@@ -63,19 +63,20 @@ function RegisterForm(props: RegisterFormProps) {
           name="stack"
           labelMessage="Your stack"
         />
-        <Button
-          className="register-form-submit"
-          type="submit"
-          disabled={isSubmitting}
-        >
-          Submit
-        </Button>
-        {/* TODO improve loading spinner */}
-        {isSubmitting && (
-          <div className="register-form-loading" >
-            <CircularProgress size="2rem" />
-          </div>
-        )}
+        <div className="submit-button-wrapper">
+          <Button
+            className="register-form-submit"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            Submit
+          </Button>
+          {isSubmitting && (
+            <div className="register-form-loading" >
+              <CircularProgress size="2rem" />
+            </div>
+          )}
+        </div>
       </Form>
     )}
     </Formik>

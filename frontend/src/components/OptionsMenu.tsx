@@ -9,6 +9,7 @@ interface OptionsMenuProps {
   onTechsChange: (event: React.ChangeEvent<{}>, value: Technology[]) => void;
 }
 
+// TODO add search butuno here too
 function OptionsMenu(props: OptionsMenuProps) {
   return (
     <div
