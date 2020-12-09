@@ -54,7 +54,7 @@ Yup.addMethod<Yup.StringSchema>(Yup.string, 'availableUsername',
 const userSchema = Yup.object().shape({
   name: Yup.string()
     .required('Name is required.')
-    .min(7, 'Name must contain at least 7 characters.')
+    .min(5, 'Name must contain at least 5 characters.')
     .max(30, 'Name must contain at most 30 characters.'),
 
   age: Yup.number()
