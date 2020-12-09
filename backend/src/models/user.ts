@@ -20,7 +20,7 @@ export default class User {
   @Column({ name:'github_username' })
   gitHubUsername: string;
 
-  @Column('datetime', {
+  @Column('timestamp', {
     name:'registered_at',
     default: () => 'CURRENT_TIMESTAMP'
   })
