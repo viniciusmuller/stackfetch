@@ -1,20 +1,20 @@
 import { Router } from 'express';
 
 import { registerLimiter } from './rateLimits';
-import UserController from '@controllers/userController';
 import TechnologyController from '@controllers/technologyController';
+import UserController from '@controllers/userController';
 
 const routes = Router();
 
-routes.post('/api/v1/users', registerLimiter, UserController.create);
-routes.get('/api/v1/users', UserController.index);
-routes.get('/api/v1/users/:id', UserController.show);
-routes.put('/api/v1/users/:id', UserController.edit);
-routes.delete('/api/v1/users/:id', UserController.destroy);
+routes.post('/v1/users', registerLimiter, UserController.create);
+routes.get('/v1/users', UserController.index);
+routes.get('/v1/users/:id', UserController.show);
+routes.put('/v1/users/:id', UserController.edit);
+routes.delete('/v1/users/:id', UserController.destroy);
 
-routes.get('/api/v1/technologies', TechnologyController.index);
-routes.post('/api/v1/technologies', TechnologyController.create);
-routes.put('/api/v1/technologies', TechnologyController.edit);
-routes.delete('/api/v1/technologies', TechnologyController.destroy);
+routes.get('/v1/technologies', TechnologyController.index);
+routes.post('/v1/technologies', TechnologyController.create);
+routes.put('/v1/technologies', TechnologyController.edit);
+routes.delete('/v1/technologies', TechnologyController.destroy);
 
 export default routes;
