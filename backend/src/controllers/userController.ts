@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository, Brackets } from 'typeorm';
 
-import { masterKey } from '@config/config';
+import { masterKey } from '@config/apiConfig';
 import Technology from '@models/technology';
 import User from '@models/user';
 import UserView from '@views/userView';
@@ -79,8 +79,8 @@ export default {
     // If stack is not provided, select any user stack
     .where(stack.length > 0 ? 'tech.id IN (:...stack)' : '1=1', { stack: stack })
     .andWhere(new Brackets(qb => {
-      qb.where('user.name LIKE :name', { name: name })
-      .orWhere('user.github_username LIKE :name', { name: name })
+      qb.where('user.name ILIKE :name', { name: name })
+      .orWhere('user.github_username ILIKE :name', { name: name })
     }))
     .getMany();
 
