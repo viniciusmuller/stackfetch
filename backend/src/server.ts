@@ -11,7 +11,8 @@ import '@database/connection';
 import { apiLimiter } from './rateLimits';
 import { port } from '@config/apiConfig';
 import errorHandler from '@errors/handler';
-import routes from './routes';
+import userRoutes from '@routes/userRoutes';
+import techRoutes from '@routes/technologyRoutes';
 
 const middlewares = [
   express.json(),
@@ -19,12 +20,12 @@ const middlewares = [
   // TODO cors whitelist before deploy
   cors(),
   apiLimiter,
-  errorHandler,
+  userRoutes,
+  techRoutes,
+  errorHandler
 ];
 
 const app = express();
-
 middlewares.forEach(m => app.use(m));
-app.use('/api', routes);
 
 app.listen(port, () => console.log(`Server listening at ${port}!`));
