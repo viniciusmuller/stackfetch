@@ -12,6 +12,8 @@
       "@validation/*": ["./src/validation/*"],
       "@services/*": ["./src/services/*"],
       "@config/*": ["./src/config/*"],
+      "@routes/*": ["./src/routes/*"],
+      "~/*": ["./src/*"],
     },
 
     "typeRoots": ["./types", "./node_modules/@types"],
