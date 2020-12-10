@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+
+  web:
+    container_name: web
+    image: node:alpine
+    ports:
+      - ${WEB_PORT}:${WEB_PORT}
+    environment:
+      PORT: ${WEB_PORT}
+    working_dir: /web
+    volumes:
+      - ./frontend:/web
+
+  api:
+    container_name: api
+    image: node:alpine
+    command: sh -c "yarn && yarn setup-db && yarn dev"
+    environment:
+      DATABASE_URL: db
+      PG_USERNAME: ${PG_USERNAME}
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_DATABASE: ${PG_DATABASE}
+      PORT: ${API_PORT}
+    working_dir: /api
+    volumes:
+      - ./backend:/api
+    depends_on:
+      - db
+
+  db:
+    container_name: postgres
+    image: "postgres"
+    environment:
+      POSTGRES_USER: ${PG_USERNAME}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE}
+    expose:
+      - ${PG_PORT}
+    volumes:
+      - pg-data:/var/lib/postgresql/data/
+
+volumes:
+  pg-data:
