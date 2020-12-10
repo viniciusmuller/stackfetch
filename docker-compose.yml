@@ -3,7 +3,7 @@ services:
 
   web:
     container_name: web
-    image: node:alpine
+    image: node:14-alpine
     ports:
       - ${WEB_PORT}:${WEB_PORT}
     environment:
@@ -14,8 +14,8 @@ services:
 
   api:
     container_name: api
-    image: node:alpine
-    command: sh -c "yarn && yarn setup-db && yarn dev"
+    image: node:14-alpine
+    command: sh -c "yarn && yarn dev"
     environment:
       DATABASE_URL: db
       PG_USERNAME: ${PG_USERNAME}
@@ -30,7 +30,7 @@ services:
 
   db:
     container_name: postgres
-    image: "postgres"
+    image: postgres
     environment:
       POSTGRES_USER: ${PG_USERNAME}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
