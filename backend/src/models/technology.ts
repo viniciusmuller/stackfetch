@@ -1,10 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 
-import User from './user'
+import User from './user';
 
 @Entity('technologies')
 export default class Technology {
-
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -14,6 +13,6 @@ export default class Technology {
   @Column()
   color: string;
 
-  @ManyToMany(() => User, user => user.technologies)
+  @ManyToMany(() => User, (user) => user.technologies)
   users: User[];
 }

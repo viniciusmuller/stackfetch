@@ -2,7 +2,6 @@ import User from '@models/user';
 import TechnologyViewModel from './technologyView';
 
 export default {
-
   render(user: User): Object {
     return {
       id: user.id,
@@ -16,6 +15,6 @@ export default {
   },
 
   renderMany(users: User[]): Object[] {
-    return users.map(user => this.render(user));
+    return users.map((user) => this.render(user));
   }
 };

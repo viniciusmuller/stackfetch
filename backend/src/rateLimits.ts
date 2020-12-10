@@ -4,7 +4,7 @@ import rateLimit from 'express-rate-limit';
 export const apiLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: 120,
-  message: 'You are going too fast! Rate limit exceeded.',
+  message: 'You are going too fast! Rate limit exceeded.'
 });
 
 // A user can register an account every 10 minutes.

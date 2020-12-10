@@ -8,9 +8,8 @@ interface ValidationErrors {
 const errorHandler: ErrorRequestHandler = (error, _, response, __) => {
   // Request didn't validate
   if (error instanceof ValidationError) {
-
     let errors: ValidationErrors = {};
-    error.inner.forEach(err => errors[err.path] = err.errors);
+    error.inner.forEach((err) => (errors[err.path] = err.errors));
 
     return response.status(422).json({
       message: 'Validation failed.',
@@ -28,6 +27,6 @@ const errorHandler: ErrorRequestHandler = (error, _, response, __) => {
   // If it's an unknown error, logs it and return internal server error.
   console.log(error);
   return response.status(500).json({ message: 'Internal server error.' });
-}
+};
 
 export default errorHandler;

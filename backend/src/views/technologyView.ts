@@ -1,7 +1,6 @@
 import Technology from '@models/technology';
 
 export default {
-
   render(tech: Technology): Object {
     return {
       id: tech.id,
@@ -11,6 +10,6 @@ export default {
   },
 
   renderMany(technologies: Technology[]): Object[] {
-    return technologies.map(tech => this.render(tech));
+    return technologies.map((tech) => this.render(tech));
   }
 };

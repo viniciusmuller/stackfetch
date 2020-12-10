@@ -6,28 +6,31 @@ import gitHubApi from '@services/gitHubApi';
 
 // Custom method for validating a minimum length for an array,
 // since yup's min method doesn't work on arrays
-Yup.addMethod<Yup.ArraySchema<any>>(Yup.array, 'minArray',
-  function(min: number, message: string) {
-    return this.test('min-array', message,
-      function(value) {
-        if (!value) return false;
-        return value.length >= min;
+Yup.addMethod<Yup.ArraySchema<any>>(
+  Yup.array,
+  'minArray',
+  function (min: number, message: string) {
+    return this.test('min-array', message, function (value) {
+      if (!value) return false;
+      return value.length >= min;
     });
   }
 );
 
 // Requests a given username at GitHub API to check if it exists.
-Yup.addMethod<Yup.StringSchema<string>>(Yup.string, 'validGitHubUsername',
-  function(message: string) {
-    return this.test('valid-github-username', message,
-     function(value) {
+Yup.addMethod<Yup.StringSchema<string>>(
+  Yup.string,
+  'validGitHubUsername',
+  function (message: string) {
+    return this.test('valid-github-username', message, function (value) {
       return new Promise((resolve, _) => {
         // Try to perform an GET request on GitHub API username,
         // if the request returns 404 (goes to catch),
         // the username is invalid.
-        gitHubApi.get(`/users/${value}`)
-          .then(_ => resolve(true))
-          .catch(_ => resolve(false));
+        gitHubApi
+          .get(`/users/${value}`)
+          .then((_) => resolve(true))
+          .catch((_) => resolve(false));
       });
     });
   }
@@ -35,19 +38,19 @@ Yup.addMethod<Yup.StringSchema<string>>(Yup.string, 'validGitHubUsername',
 
 // Method that checks if a GitHub username is already
 // registered on the system database.
-Yup.addMethod<Yup.StringSchema>(Yup.string, 'availableUsername',
-  function(message: string) {
-    return this.test('available-app-username', message,
-      function(value) {
-        return new Promise((resolve, _) => {
-          getRepository(User)
-            .createQueryBuilder('user')
-            .where('user.github_username = :name', { name: value })
-            .getCount()
-            .then(result => resolve(result == 0))
-        });
-      }
-    );
+Yup.addMethod<Yup.StringSchema>(
+  Yup.string,
+  'availableUsername',
+  function (message: string) {
+    return this.test('available-app-username', message, function (value) {
+      return new Promise((resolve, _) => {
+        getRepository(User)
+          .createQueryBuilder('user')
+          .where('user.github_username = :name', { name: value })
+          .getCount()
+          .then((result) => resolve(result == 0));
+      });
+    });
   }
 );
 
@@ -82,7 +85,6 @@ const userSchema = Yup.object().shape({
     .of(Yup.number())
     .minArray(1, 'Stack must contain at least one technology.')
     .max(7, 'Stack must contain at most 7 technologies')
-  }
-);
+});
 
 export default userSchema;

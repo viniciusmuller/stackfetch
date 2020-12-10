@@ -15,13 +15,11 @@ export default {
 
   // TODO create authentication required decorator
   async destroy(request: Request, response: Response) {
-
-    return response.status(501).json({ message: 'Not implemented.' })
+    return response.status(501).json({ message: 'Not implemented.' });
   },
 
   async edit(request: Request, response: Response) {
-
-    return response.status(501).json({ message: 'Not implemented.' })
+    return response.status(501).json({ message: 'Not implemented.' });
   },
 
   async create(request: Request, response: Response) {
@@ -31,10 +29,12 @@ export default {
       strict: true,
       abortEarly: false
     });
-    const techData = technologySchema.cast(request.body, { stripUnknown: true });
+    const techData = technologySchema.cast(request.body, {
+      stripUnknown: true
+    });
     const tech = techRepository.create(techData as Object);
     await techRepository.save(tech);
 
     return response.status(201).json({ message: 'Technology created.' });
   }
-}
+};
