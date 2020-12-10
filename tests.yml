@@ -1,0 +1,11 @@
+services:
+
+  api:
+    command: sh -c "yarn && yarn test"
+
+  postgres-tests:
+    image: postgres
+    environment:
+      POSTGRES_USER: ${PG_USERNAME}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_TEST_DATABASE}
