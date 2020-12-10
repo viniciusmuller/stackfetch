@@ -1,25 +1,25 @@
 #options-bar {
-	width: $options-bar-width;
-	height: 100vh;
+  width: $options-bar-width;
+  height: 100vh;
 
-	background-color: $options-bar-bg-color;
+  background-color: $options-bar-bg-color;
 
-	transition: width $options-bar-slide-speed ease;
-	position: fixed;
-	z-index: 1;
+  transition: width $options-bar-slide-speed ease;
+  position: fixed;
+  z-index: 1;
 
-	.cog {
+  .cog {
     @include flex($justify: flex-end);
-		padding: 0.6rem 0.5rem 0 0;
-	}
+    padding: 0.6rem 0.5rem 0 0;
+  }
 
-	.cog svg {
-		fill: $cog-svg-color;
-		transform: rotate(0deg);
-		transition: transform $cog-svg-rotation-speed;
-	}
+  .cog svg {
+    fill: $cog-svg-color;
+    transform: rotate(0deg);
+    transition: transform $cog-svg-rotation-speed;
+  }
 
-	.options-flex {
+  .options-flex {
     @include flex($direction: column);
 
     padding-top: 1.5rem;
@@ -43,7 +43,6 @@
           text-decoration: none;
 
           .mui-register-button {
-
             background: $register-link-button-color;
             color: $register-link-button-text-color;
             font-size: 1.2rem;
@@ -64,12 +63,12 @@
   &:hover,
   &:focus-within {
     outline: none;
-		width: 17rem;
-	}
+    width: 17rem;
+  }
 
   &:hover .cog svg,
   &:focus-within .cog svg {
-		transform:rotate(360deg);
+    transform: rotate(360deg);
   }
 
   &:hover .options,

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import { ReactComponent as AppLogo } from '../assets/svg/appLogo.svg';
+import { ReactComponent as AppLogo } from "../assets/svg/appLogo.svg";
 
 function TopAppLogo() {
   return (

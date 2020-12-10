@@ -6,11 +6,7 @@
 }
 
 // Mixing for creating a flexbox
-@mixin flex($direction: row,
-            $justify: center,
-            $align: center,
-            $wrap: wrap)
-{
+@mixin flex($direction: row, $justify: center, $align: center, $wrap: wrap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;

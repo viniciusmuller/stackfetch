@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { User } from '../common/types';
+import { User } from "../common/types";
 
 function UserCard(props: User) {
   const [flipped, setFlipped] = useState(false);
 
-  const registeredAt = new Date(props.registeredAt).toLocaleString('en', {
-    timeZone: 'UTC',
-    hour12: false
-  })
+  const registeredAt = new Date(props.registeredAt).toLocaleString("en", {
+    timeZone: "UTC",
+    hour12: false,
+  });
 
   return (
     <div
       onClick={() => setFlipped(!flipped)}
-      className={`user-card ${flipped ? 'flipped' : ''}`}
+      className={`user-card ${flipped ? "flipped" : ""}`}
     >
       <div className="card-wrapper">
         <div className="front face">
@@ -22,26 +22,22 @@ function UserCard(props: User) {
             className="gh-profile-pic"
             alt={props.name}
           />
-          <p className="user-name">
-            {props.name}
-          </p>
+          <p className="user-name">{props.name}</p>
           <div className="user-stack">
-            {
-              props.stack.map(tech => {
-                return (
-                  <div
-                    key={tech.id}
-                    className="user-technology"
-                    style={{
-                      border: `0.15rem solid ${tech.color}`,
-                      color: tech.color
-                    }}
-                  >
-                    {tech.name}
-                  </div>
-                );
-              })
-            }
+            {props.stack.map((tech) => {
+              return (
+                <div
+                  key={tech.id}
+                  className="user-technology"
+                  style={{
+                    border: `0.15rem solid ${tech.color}`,
+                    color: tech.color,
+                  }}
+                >
+                  {tech.name}
+                </div>
+              );
+            })}
           </div>
           <div className="gh-profile">
             <a
@@ -54,21 +50,15 @@ function UserCard(props: User) {
           </div>
         </div>
         <div className="back face">
-          <p className="user-name">
-            {props.name}
-          </p>
-          <p className="user-age">
-            {props.age} years
-          </p>
-          <p className="user-about">
-            {props.about}
-          </p>
+          <p className="user-name">{props.name}</p>
+          <p className="user-age">{props.age} years</p>
+          <p className="user-about">{props.about}</p>
           <br />
-          <p className="user-join-date">
-            Registered at {registeredAt}.
-          </p>
-        </div> {/* Card back */}
-      </div> {/* Card wrapper */}
+          <p className="user-join-date">Registered at {registeredAt}.</p>
+        </div>{" "}
+        {/* Card back */}
+      </div>{" "}
+      {/* Card wrapper */}
     </div>
   );
 }

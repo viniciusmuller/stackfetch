@@ -1,5 +1,5 @@
-import { useField } from 'formik';
-import TechnologyInput from '../TechnologyInput';
+import { useField } from "formik";
+import TechnologyInput from "../TechnologyInput";
 
 interface UserTechnologyFieldProps {
   name: string;
@@ -11,12 +11,13 @@ function UserTechnologyField(props: UserTechnologyFieldProps) {
 
   return (
     <div className="user-techs-field">
-      <label>
-        {props.labelMessage}
-      </label>
-      <TechnologyInput {...field} onChange={(_, techs) => {
-        helpers.setValue(techs.map(t => t.id))}
-       } />
+      <label>{props.labelMessage}</label>
+      <TechnologyInput
+        {...field}
+        onChange={(_, techs) => {
+          helpers.setValue(techs.map((t) => t.id));
+        }}
+      />
       {meta.error && <p className="field-error">{meta.error}</p>}
     </div>
   );

@@ -78,7 +78,7 @@
           border-radius: 0.5rem;
 
           &::before {
-            content: '@'
+            content: "@";
           }
 
           @media (max-width: $mobile) {
@@ -98,7 +98,7 @@
       color: #ffffff;
       display: inline-block;
 
-      .user-about  {
+      .user-about {
         word-wrap: break-word;
       }
 
@@ -106,7 +106,7 @@
         font-size: 1.2rem;
       }
 
-      .user-about  {
+      .user-about {
         padding-top: 1rem;
       }
 

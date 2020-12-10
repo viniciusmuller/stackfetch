@@ -1,4 +1,4 @@
-import { Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage } from "formik";
 
 interface FormFieldProps {
   name: string;
@@ -11,20 +11,14 @@ interface FormFieldProps {
 function FormField(props: FormFieldProps) {
   return (
     <>
-      <label className="form-label">
-        {props.labelMessage}
-      </label>
+      <label className="form-label">{props.labelMessage}</label>
       <Field
         className="form-input-field"
-        type={props.type || 'text'}
+        type={props.type || "text"}
         as={props.renderInput}
         name={props.name}
       />
-      <ErrorMessage
-        className="field-error"
-        name={props.name}
-        component="p"
-      />
+      <ErrorMessage className="field-error" name={props.name} component="p" />
       {props.comment && <p className="field-comment">{props.comment}</p>}
     </>
   );

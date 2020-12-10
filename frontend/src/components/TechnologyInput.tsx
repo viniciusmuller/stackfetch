@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import TextField from '@material-ui/core/TextField';
+import { useEffect, useState } from "react";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
 
-import { Technology } from '../common/types';
-import api from '../services/api';
-
+import { Technology } from "../common/types";
+import api from "../services/api";
 
 interface TechInputProps {
   onChange: (e: React.ChangeEvent<{}>, values: Technology[]) => void;
@@ -15,9 +14,10 @@ function TechnologyInput(props: TechInputProps) {
 
   // Loading all available technologies on mount
   useEffect(() => {
-    api.get('/technologies')
-      .then(res => setTechnologies(res.data))
-      .catch(err => console.error(err));
+    api
+      .get("/technologies")
+      .then((res) => setTechnologies(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -30,12 +30,8 @@ function TechnologyInput(props: TechInputProps) {
         getOptionLabel={(tech: Technology) => tech.name}
         options={technologies}
         noOptionsText="No technologies found."
-        renderInput={params => (
-          <TextField
-            {...params}
-            variant="standard"
-            label="Technologies"
-          />
+        renderInput={(params) => (
+          <TextField {...params} variant="standard" label="Technologies" />
         )}
       />
     </div>

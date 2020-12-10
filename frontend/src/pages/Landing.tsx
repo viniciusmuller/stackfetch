@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
-import { ReactComponent as UndrawLandingSvg } from '../assets/svg/undrawLanding.svg';
+import { ReactComponent as UndrawLandingSvg } from "../assets/svg/undrawLanding.svg";
 
 function Landing() {
   return (
@@ -15,9 +15,7 @@ function Landing() {
         <h2>Find developers around the world based on their stack.</h2>
 
         <Link to="/app">
-          <Button className="get-started-button">
-            Get started!
-          </Button>
+          <Button className="get-started-button">Get started!</Button>
         </Link>
       </div>
     </div>

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import TopAppLogo from '../components/TopAppLogo';
-import RegisterForm from '../components/forms/RegisterForm';
-import BackToAppButton from '../components/BackToAppButton';
-import Footer from '../components/Footer';
+import TopAppLogo from "../components/TopAppLogo";
+import RegisterForm from "../components/forms/RegisterForm";
+import BackToAppButton from "../components/BackToAppButton";
+import Footer from "../components/Footer";
 
 function Register() {
   // TODO parse other backend errors
@@ -18,7 +18,8 @@ function Register() {
             <>
               <h1>Thanks for registering!</h1>
               <p>
-                We hope that you can connect with others developers through this application.
+                We hope that you can connect with others developers through this
+                application.
                 <br />
                 Never stop learning!
               </p>

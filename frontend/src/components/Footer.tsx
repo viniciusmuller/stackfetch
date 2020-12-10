@@ -1,16 +1,14 @@
-import { FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-import { ReactComponent as AppLogo } from '../assets/svg/appLogo.svg';
+import { ReactComponent as AppLogo } from "../assets/svg/appLogo.svg";
 
 function Footer() {
   return (
     <footer>
       <div className="footer-section">
         <AppLogo className="footer-app-logo" />
-        <p>
-          StackFetch App. Search for developers based on their stack.
-        </p>
+        <p>StackFetch App. Search for developers based on their stack.</p>
         <p>
           Made by
           <a
@@ -42,13 +40,8 @@ function Footer() {
           rel="noreferrer noopener"
           className="footer-repo-link"
         >
-          <p>
-            Open Source project at GitHub
-          </p>
-          <FaGithub
-            size="2.75rem"
-            className="footer-gh-icon"
-          />
+          <p>Open Source project at GitHub</p>
+          <FaGithub size="2.75rem" className="footer-gh-icon" />
         </a>
       </div>
     </footer>
