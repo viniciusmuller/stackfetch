@@ -1,6 +1,6 @@
-import { FaSearch } from "react-icons/fa";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import { FaSearch } from 'react-icons/fa';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 interface SearchBarProps {
   // The onClick callback is used for fetching users from the API.
@@ -9,9 +9,11 @@ interface SearchBarProps {
 }
 
 function SearchBar(props: SearchBarProps) {
+  const { onClick, onChange } = props;
+
   function handleKeyDown(event: React.KeyboardEvent) {
     // Listen the input and fetch users on a 'Enter' key press.
-    if (event.key === "Enter") props.onClick(null);
+    if (event.key === 'Enter') props.onClick(null);
   }
 
   return (
@@ -21,10 +23,10 @@ function SearchBar(props: SearchBarProps) {
         spellCheck={false}
         className="search-users-input"
         placeholder="Search for some cool people..."
-        onChange={props.onChange}
+        onChange={onChange}
         onKeyPress={handleKeyDown}
       />
-      <Button className="search-button" onClick={props.onClick}>
+      <Button className="search-button" onClick={onClick}>
         <FaSearch size="1.4rem" />
       </Button>
     </div>

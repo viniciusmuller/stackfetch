@@ -1,12 +1,12 @@
-import { Formik, Form } from "formik";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { Formik, Form } from 'formik';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-import FormField from "./FormField";
-import UserTechnologyField from "./UserTechnologyField";
-import userSchema from "@validation/userSchema";
-import api from "@services/api";
+import userSchema from '@validation/userSchema';
+import api from '@services/api';
+import FormField from './FormField';
+import UserTechnologyField from './UserTechnologyField';
 
 interface RegisterFormProps {
   onSucess: () => void;
@@ -16,16 +16,16 @@ function RegisterForm(props: RegisterFormProps) {
   return (
     <Formik
       initialValues={{
-        name: "",
-        age: "",
-        about: "",
-        gitHubUsername: "",
+        name: '',
+        age: '',
+        about: '',
+        gitHubUsername: '',
         stack: [],
       }}
       validationSchema={userSchema}
       onSubmit={(values, { setSubmitting, setErrors }) => {
         api
-          .post("/users", values)
+          .post('/users', values)
           // If no errors occurs, user was registered on the system.
           .then(() => props.onSucess())
           .catch((err) => setErrors(err.response.data.errors))

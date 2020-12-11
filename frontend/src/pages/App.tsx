@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { useState, useEffect } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { Technology, User } from "@common/types";
-import TopAppLogo from "@components/TopAppLogo";
-import OptionsMenu from "@components/OptionsMenu";
-import SearchBar from "@components/SearchBar";
-import NoUsers from "@components/NoUsers";
-import UserCard from "@components/UserCard";
-import LoadUsersButton from "@components/LoadUsersButton";
-import Footer from "@components/Footer";
-import api from "@services/api";
+import { Technology, User } from '@common/types';
+import TopAppLogo from '@components/TopAppLogo';
+import OptionsMenu from '@components/OptionsMenu';
+import SearchBar from '@components/SearchBar';
+import NoUsers from '@components/NoUsers';
+import UserCard from '@components/UserCard';
+import LoadUsersButton from '@components/LoadUsersButton';
+import Footer from '@components/Footer';
+import api from '@services/api';
 
 function App() {
   // User search values
-  const [userSearchValue, setUserSearchValue] = useState("");
+  const [userSearchValue, setUserSearchValue] = useState('');
   const [selectedTechnologies, setSelectedTechnologies] = useState<
     Technology[]
   >([]);
@@ -23,7 +23,7 @@ function App() {
   // Load our first page of users on component mount
   useEffect(() => {
     api
-      .get("/users")
+      .get('/users')
       .then((res) => setUsers(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -41,14 +41,14 @@ function App() {
             setUsers(null);
             // Fetching users from the API and setting them
             api
-              .get("/users", {
+              .get('/users', {
                 params: {
                   name: userSearchValue,
                   stack: selectedTechnologies.map((t) => t.id).join(),
                 },
               })
               .then((res) => setUsers(res.data))
-              .catch((err) => console.log(err));
+              .catch((err) => console.error(err));
           }}
           onChange={(e) => {
             setUserSearchValue((e.target as HTMLInputElement).value);
@@ -67,12 +67,12 @@ function App() {
             ))) || <CircularProgress size={50} />}
           {/* Check if the total users is divisible per 10 (page size).
               If it is, we can try to load another page of users on the API */}
-          <div className="load-users-break"></div>
+          <div className="load-users-break" />
           {users && users.length % 10 === 0 && users.length > 0 && (
             <LoadUsersButton
               onClick={() => {
                 api
-                  .get("/users", {
+                  .get('/users', {
                     params: {
                       name: userSearchValue,
                       stack: selectedTechnologies.map((t) => t.id).join(),
@@ -80,7 +80,7 @@ function App() {
                     },
                   })
                   .then((res) => setUsers(users!.concat(res.data)))
-                  .catch((err) => console.log(err));
+                  .catch((err) => console.error(err));
               }}
             />
           )}

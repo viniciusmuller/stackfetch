@@ -78,7 +78,7 @@
           border-radius: 0.5rem;
 
           &::before {
-            content: "@";
+            content: '@';
           }
 
           @media (max-width: $mobile) {

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import TextField from "@material-ui/core/TextField";
+import { useEffect, useState } from 'react';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
 
-import { Technology } from "@common/types";
-import api from "@services/api";
+import { Technology } from '@common/types';
+import api from '@services/api';
 
 interface TechInputProps {
   onChange: (e: React.ChangeEvent<{}>, values: Technology[]) => void;
@@ -11,11 +11,12 @@ interface TechInputProps {
 
 function TechnologyInput(props: TechInputProps) {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const { onChange } = props;
 
   // Loading all available technologies on mount
   useEffect(() => {
     api
-      .get("/technologies")
+      .get('/technologies')
       .then((res) => setTechnologies(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -26,7 +27,7 @@ function TechnologyInput(props: TechInputProps) {
         multiple
         autoHighlight
         limitTags={4}
-        onChange={props.onChange}
+        onChange={onChange}
         getOptionLabel={(tech: Technology) => tech.name}
         options={technologies}
         noOptionsText="No technologies found."

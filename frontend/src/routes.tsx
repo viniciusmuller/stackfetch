@@ -1,10 +1,10 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Landing from "./pages/Landing";
-import App from "./pages/App";
-import About from "./pages/About";
-import Register from "./pages/Register";
-import NotFound from "./pages/NotFound";
+import Landing from '@pages/Landing';
+import App from '@pages/App';
+import About from '@pages/About';
+import Register from '@pages/Register';
+import NotFound from '@pages/NotFound';
 
 function Routes() {
   return (

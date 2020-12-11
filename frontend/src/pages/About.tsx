@@ -1,6 +1,6 @@
-import TopAppLogo from "@components/TopAppLogo";
-import BackToAppButton from "@components/BackToAppButton";
-import Footer from "@components/Footer";
+import TopAppLogo from '@components/TopAppLogo';
+import BackToAppButton from '@components/BackToAppButton';
+import Footer from '@components/Footer';
 
 function About() {
   return (
@@ -30,6 +30,7 @@ function About() {
             <li>Yup</li>
             <li>Axios</li>
             <li>TypeORM</li>
+            <li>PostgreSQL</li>
           </ul>
 
           <h2>Purpose</h2>
@@ -37,13 +38,13 @@ function About() {
             This application was made for study purposes and do not target being
             an actual platform.
             <br />
-            However, it's functional and can be used by other developers.
+            However, it&apos;s functional and can be used by other developers.
           </p>
 
           <h2>Disclaimer</h2>
           <p>
-            It's discouraged for users registering any other GitHub accounts
-            that not their own.
+            It&apos;s discouraged for users registering any other GitHub
+            accounts that not their own.
           </p>
           <p>
             I do not take responsibility for any user misusage on the platform.

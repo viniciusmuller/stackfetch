@@ -1,4 +1,4 @@
-import { Field, ErrorMessage } from "formik";
+import { Field, ErrorMessage } from 'formik';
 
 interface FormFieldProps {
   name: string;
@@ -9,19 +9,28 @@ interface FormFieldProps {
 }
 
 function FormField(props: FormFieldProps) {
+  const { name, labelMessage, renderInput, type, comment } = props;
+
   return (
     <>
-      <label className="form-label">{props.labelMessage}</label>
+      <label className="form-label" htmlFor={name}>
+        {labelMessage}
+      </label>
       <Field
         className="form-input-field"
-        type={props.type || "text"}
-        as={props.renderInput}
-        name={props.name}
+        type={type}
+        as={renderInput}
+        name={name}
       />
-      <ErrorMessage className="field-error" name={props.name} component="p" />
-      {props.comment && <p className="field-comment">{props.comment}</p>}
+      <ErrorMessage className="field-error" name={name} component="p" />
+      {comment && <p className="field-comment">{comment}</p>}
     </>
   );
 }
+
+FormField.defaultProps = {
+  comment: undefined,
+  type: 'text',
+};
 
 export default FormField;

@@ -1,30 +1,38 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { User } from "@common/types";
+import { User } from '@common/types';
 
 function UserCard(props: User) {
   const [flipped, setFlipped] = useState(false);
 
-  const registeredAt = new Date(props.registeredAt).toLocaleString("en", {
-    timeZone: "UTC",
+  const { name, age, about, gitHubUsername, stack } = props;
+  let { registeredAt } = props;
+
+  registeredAt = new Date(registeredAt).toLocaleString('en', {
+    timeZone: 'UTC',
     hour12: false,
   });
 
+  const flip = () => setFlipped(!flipped);
+
   return (
     <div
-      onClick={() => setFlipped(!flipped)}
-      className={`user-card ${flipped ? "flipped" : ""}`}
+      role="button"
+      tabIndex={0}
+      onClick={flip}
+      onKeyDown={flip}
+      className={`user-card ${flipped ? 'flipped' : ''}`}
     >
       <div className="card-wrapper">
         <div className="front face">
           <img
-            src={`https://avatars.githubusercontent.com/${props.gitHubUsername}`}
+            src={`https://avatars.githubusercontent.com/${gitHubUsername}`}
             className="gh-profile-pic"
-            alt={props.name}
+            alt={name}
           />
-          <p className="user-name">{props.name}</p>
+          <p className="user-name">{name}</p>
           <div className="user-stack">
-            {props.stack.map((tech) => {
+            {stack.map((tech) => {
               return (
                 <div
                   key={tech.id}
@@ -41,23 +49,23 @@ function UserCard(props: User) {
           </div>
           <div className="gh-profile">
             <a
-              href={`https://github.com/${props.gitHubUsername}`}
+              href={`https://github.com/${gitHubUsername}`}
               target="_blank"
               rel="noreferrer noopener"
             >
-              {props.gitHubUsername}
+              {gitHubUsername}
             </a>
           </div>
         </div>
         <div className="back face">
-          <p className="user-name">{props.name}</p>
-          <p className="user-age">{props.age} years</p>
-          <p className="user-about">{props.about}</p>
+          <p className="user-name">{name}</p>
+          <p className="user-age">{age} years</p>
+          <p className="user-about">{about}</p>
           <br />
           <p className="user-join-date">Registered at {registeredAt}.</p>
-        </div>{" "}
+        </div>{' '}
         {/* Card back */}
-      </div>{" "}
+      </div>{' '}
       {/* Card wrapper */}
     </div>
   );

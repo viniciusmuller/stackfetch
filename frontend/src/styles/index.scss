@@ -1,27 +1,27 @@
 // Sass specials
-@import "utils/variables";
-@import "utils/mixins";
-@import "utils/extends";
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/extends';
 
 // Global app styles
-@import "utils/globals";
+@import 'utils/globals';
 
 // Components
-@import "components/Footer";
-@import "components/OptionsMenu";
-@import "components/TopAppLogo";
-@import "components/UserCard";
-@import "components/TechnologyInput";
-@import "components/SearchBar";
-@import "components/NoUsers";
-@import "components/BackToAppButton";
-@import "components/LoadUsersButton";
-@import "components/forms/FormField";
-@import "components/forms/RegisterForm";
+@import 'components/Footer';
+@import 'components/OptionsMenu';
+@import 'components/TopAppLogo';
+@import 'components/UserCard';
+@import 'components/TechnologyInput';
+@import 'components/SearchBar';
+@import 'components/NoUsers';
+@import 'components/BackToAppButton';
+@import 'components/LoadUsersButton';
+@import 'components/forms/FormField';
+@import 'components/forms/RegisterForm';
 
 // Pages
-@import "pages/Landing";
-@import "pages/Register";
-@import "pages/About";
-@import "pages/App";
-@import "pages/NotFound";
+@import 'pages/Landing';
+@import 'pages/Register';
+@import 'pages/About';
+@import 'pages/App';
+@import 'pages/NotFound';
