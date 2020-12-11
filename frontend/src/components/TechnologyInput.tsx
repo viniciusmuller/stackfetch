@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
 
-import { Technology } from "../common/types";
-import api from "../services/api";
+import { Technology } from "@common/types";
+import api from "@services/api";
 
 interface TechInputProps {
   onChange: (e: React.ChangeEvent<{}>, values: Technology[]) => void;

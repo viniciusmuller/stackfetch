@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-import { Technology, User } from "../common/types";
-import TopAppLogo from "../components/TopAppLogo";
-import OptionsMenu from "../components/OptionsMenu";
-import SearchBar from "../components/SearchBar";
-import NoUsers from "../components/NoUsers";
-import UserCard from "../components/UserCard";
-import LoadUsersButton from "../components/LoadUsersButton";
-import Footer from "../components/Footer";
-import api from "../services/api";
+import { Technology, User } from "@common/types";
+import TopAppLogo from "@components/TopAppLogo";
+import OptionsMenu from "@components/OptionsMenu";
+import SearchBar from "@components/SearchBar";
+import NoUsers from "@components/NoUsers";
+import UserCard from "@components/UserCard";
+import LoadUsersButton from "@components/LoadUsersButton";
+import Footer from "@components/Footer";
+import api from "@services/api";
 
 function App() {
   // User search values

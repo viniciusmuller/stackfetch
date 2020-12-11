@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-import TopAppLogo from "../components/TopAppLogo";
-import Footer from "../components/Footer";
+import TopAppLogo from "@components/TopAppLogo";
+import Footer from "@components/Footer";
 
 function NotFound() {
   return (

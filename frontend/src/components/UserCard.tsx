@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { User } from "../common/types";
+import { User } from "@common/types";
 
 function UserCard(props: User) {
   const [flipped, setFlipped] = useState(false);

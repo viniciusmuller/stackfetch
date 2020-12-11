@@ -5,8 +5,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import FormField from "./FormField";
 import UserTechnologyField from "./UserTechnologyField";
-import userSchema from "../../validation/userSchema";
-import api from "../../services/api";
+import userSchema from "@validation/userSchema";
+import api from "@services/api";
 
 interface RegisterFormProps {
   onSucess: () => void;

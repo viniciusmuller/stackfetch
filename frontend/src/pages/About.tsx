@@ -1,6 +1,6 @@
-import TopAppLogo from "../components/TopAppLogo";
-import BackToAppButton from "../components/BackToAppButton";
-import Footer from "../components/Footer";
+import TopAppLogo from "@components/TopAppLogo";
+import BackToAppButton from "@components/BackToAppButton";
+import Footer from "@components/Footer";
 
 function About() {
   return (

@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import TopAppLogo from "../components/TopAppLogo";
-import RegisterForm from "../components/forms/RegisterForm";
-import BackToAppButton from "../components/BackToAppButton";
-import Footer from "../components/Footer";
+import TopAppLogo from "@components/TopAppLogo";
+import RegisterForm from "@components/forms/RegisterForm";
+import BackToAppButton from "@components/BackToAppButton";
+import Footer from "@components/Footer";
 
 function Register() {
   // TODO parse other backend errors

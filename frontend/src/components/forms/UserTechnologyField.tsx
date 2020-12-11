@@ -1,5 +1,5 @@
 import { useField } from "formik";
-import TechnologyInput from "../TechnologyInput";
+import TechnologyInput from "@components/TechnologyInput";
 
 interface UserTechnologyFieldProps {
   name: string;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 import TechnologyInput from "./TechnologyInput";
-import { Technology } from "../common/types";
+import { Technology } from "@common/types";
 
 interface OptionsMenuProps {
   onTechsChange: (event: React.ChangeEvent<{}>, value: Technology[]) => void;

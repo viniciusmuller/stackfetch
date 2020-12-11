@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-import { ReactComponent as UndrawLandingSvg } from "../assets/svg/undrawLanding.svg";
+import { ReactComponent as UndrawLandingSvg } from "@assets/svg/undrawLanding.svg";
 
 function Landing() {
   return (
