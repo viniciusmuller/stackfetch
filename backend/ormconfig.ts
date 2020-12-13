@@ -9,12 +9,8 @@ export default [
     database: process.env.PG_DATABASE,
 
     synchronize: true,
-    entities: [
-      './src/models/*.ts'
-    ],
-    migrations: [
-      './src/database/migrations/*.ts'
-    ],
+    entities: ['./src/models/*.ts'],
+    migrations: ['./src/database/migrations/*.ts'],
     cli: {
       migrationsDir: './src/database/migrations'
     }
@@ -26,16 +22,12 @@ export default [
     port: process.env.PG_PORT,
     username: process.env.PG_USERNAME,
     password: process.env.PG_PASSWORD,
-    database: process.env.PG_TEST_DATABASE,
+    database: 'tests',
 
     synchronize: true,
     dropSchema: true,
-    entities: [
-      './src/models/*.ts'
-    ],
-    migrations: [
-      './src/database/migrations/*.ts'
-    ],
+    entities: ['./src/models/*.ts'],
+    migrations: ['./src/database/migrations/*.ts'],
     cli: {
       migrationsDir: './src/database/migrations'
     }
@@ -51,15 +43,10 @@ export default [
 
     synchronize: false,
     runMigrations: true,
-    entities: [
-      './src/models/*.ts'
-    ],
-    migrations: [
-      './src/database/migrations/*.ts'
-    ],
+    entities: ['./src/models/*.ts'],
+    migrations: ['./src/database/migrations/*.ts'],
     cli: {
       migrationsDir: './src/database/migrations'
     }
   }
-]
-
+];

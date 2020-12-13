@@ -1,11 +1,14 @@
 services:
-
   api:
-    command: sh -c "yarn && yarn test"
+    build:
+      dockerfile: Dockerfile.prod
+    environment:
+      DATABASE_URL: postgres-tests
+      NODE_ENV: test
 
   postgres-tests:
     image: postgres
     environment:
       POSTGRES_USER: ${PG_USERNAME}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
-      POSTGRES_DB: ${PG_TEST_DATABASE}
+      POSTGRES_DB: tests

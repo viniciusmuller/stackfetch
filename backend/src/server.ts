@@ -24,8 +24,6 @@ const middlewares = [
   errorHandler
 ];
 
-console.log('alo');
-
 createTypeormConnection()
   // Await typeorm to connect
   .then((_: Connection) => {})

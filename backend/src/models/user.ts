@@ -31,7 +31,10 @@ export default class User {
   })
   registeredAt: string;
 
-  @ManyToMany(() => Technology, (technology) => technology.users)
+  @ManyToMany(() => Technology, (technology) => technology.users, {
+    cascade: true,
+    eager: true
+  })
   @JoinTable()
   technologies: Technology[];
 }

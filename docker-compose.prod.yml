@@ -1,0 +1,25 @@
+services:
+  # TODO create yarn script for production
+  web:
+    restart: always
+    build:
+      dockerfile: Dockerfile.prod
+    ports:
+      - 80:80
+    environment:
+      PORT: 80
+      NODE_ENV: production
+
+  api:
+    restart: always
+    build:
+      dockerfile: Dockerfile.prod
+    environment:
+      PORT: 8393
+      NODE_ENV: production
+    ports:
+      - 8393:8393
+
+  db:
+    restart: always
+# command: sh -c "${INSTALL_PYTHON} && yarn && yarn build && yarn global add serve && serve -s build"

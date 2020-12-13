@@ -23,8 +23,7 @@ export default {
    * @param response - HTTP Response.
    * @returns JSON reponse containing information about the created user.
    */
-  async create (request: Request, response: Response) {
-
+  async create(request: Request, response: Response) {
     const userRepository = getRepository(User);
     const technologyRepository = getRepository(Technology);
 
@@ -39,7 +38,7 @@ export default {
 
     if (casted === undefined) throw new Error('stack was undefined.');
 
-    const {stack, ...userData} = casted;
+    const { stack, ...userData } = casted;
 
     const user = userRepository.create(userData);
 
@@ -57,7 +56,6 @@ export default {
    * @returns JSON response containing an Array of users.
    */
   async index(request: Request, response: Response) {
-
     const pageSize = 10;
     const userRepository = getRepository(User);
 
@@ -70,33 +68,44 @@ export default {
 
     const stackQs = request.query.stack as string;
     // Mapping the query string comma separated numbers into an Array.
-    let stack = stackQs ? stackQs.split(',').map(x => +x) : [];
+    let stack = stackQs ? stackQs.split(',').map((x) => +x) : [];
 
     // TODO not strict query, (192,1 returning users that contains 1 and not 192 too)
     let users = await userRepository
-    .createQueryBuilder('user')
-    .innerJoin('user.technologies', 'tech')
-    // If stack is not provided, select any user stack
-    .where(stack.length > 0 ? 'tech.id IN (:...stack)' : '1=1', { stack: stack })
-    .andWhere(new Brackets(qb => {
-      qb.where('user.name ILIKE :name', { name: name })
-      .orWhere('user.github_username ILIKE :name', { name: name })
-    }))
-    .getMany();
+      .createQueryBuilder('user')
+      .innerJoin('user.technologies', 'tech')
+      // If stack is not provided, select any user stack
+      .where(stack.length > 0 ? 'tech.id IN (:...stack)' : '1=1', {
+        stack: stack
+      })
+      .andWhere(
+        new Brackets((qb) => {
+          qb.where('user.name ILIKE :name', {
+            name: name
+          }).orWhere('user.github_username ILIKE :name', { name: name });
+        })
+      )
+      .getMany();
+
+    console.log(users);
 
     // The above query is returning the users with only the technologies
     // that match on the query instead of all of them, this is a pretty stupid
     // fix, but it works.
     // Also, typeorm have some issues with ordering while using where
     // and pagination, so we paginate and order the users here.
-    users = await userRepository.findByIds(users.map(u => u.id), {
-      relations: ['technologies'],
-      order: {
-        id: order
-      },
-      skip: Number(page) * pageSize,
-      take: pageSize
-    });
+    users = await userRepository.findByIds(
+      users.map((u) => u.id),
+      {
+        order: {
+          id: order
+        },
+        skip: Number(page) * pageSize,
+        take: pageSize
+      }
+    );
+
+    console.log(users);
 
     return response.json(UserView.renderMany(users));
   },
@@ -113,12 +122,14 @@ export default {
     const userRepository = getRepository(User);
     const id = request.params.id;
 
+    // TODO now relation is eager
     const user = await userRepository.findOne(id, {
       relations: ['technologies']
     });
 
-    return user ? response.json(UserView.render(user))
-                : response.status(404).json({ message: 'User not found' });
+    return user
+      ? response.json(UserView.render(user))
+      : response.status(404).json({ message: 'User not found' });
   },
 
   async destroy(request: Request, response: Response) {
@@ -133,16 +144,16 @@ export default {
 
     if (user) {
       await userRepository.delete(id);
-      return response.json({ message: 'User succesfully deleted.' })
+      return response.json({ message: 'User succesfully deleted.' });
     }
-    return response.status(404).json({ message: 'Invalid user ID.' })
+    return response.status(404).json({ message: 'Invalid user ID.' });
   },
 
   async edit(request: Request, response: Response) {
     // TODO authentication required decorator
     // TODO edit user
 
-    return response.status(501).json({ message: 'Not implemented.' })
+    return response.status(501).json({ message: 'Not implemented.' });
 
     // const userRepository = getRepository(User);
     // const id = request.params.id;

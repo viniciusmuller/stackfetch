@@ -1,0 +1,8 @@
+FROM node:14-alpine
+
+WORKDIR /api
+COPY . /api
+
+RUN yarn
+
+CMD [ "./start.sh" ]

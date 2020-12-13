@@ -7,10 +7,10 @@
   "main": "./src/server.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development ts-node-dev --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "test": "jest",
-    "setup-db": "NODE_ENV=development yarn typeorm migration:run"
+    "test": "jest --verbose --runInBand",
+    "migrate": "yarn typeorm migration:run -c ${0}"
   },
   "dependencies": {
     "axios": "^0.21.0",
