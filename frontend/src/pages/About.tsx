@@ -31,6 +31,7 @@ function About() {
             <li>Axios</li>
             <li>TypeORM</li>
             <li>PostgreSQL</li>
+            <li>Jest</li>
           </ul>
 
           <h2>Purpose</h2>

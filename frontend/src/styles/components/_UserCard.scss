@@ -1,10 +1,9 @@
-// TODO remove card flip unnecessary outline
-
 .user-card {
   width: $user-card-width;
   background-color: transparent;
   position: relative;
   margin: 2rem;
+  cursor: pointer;
 
   .card-wrapper {
     transition: transform $user-card-animation-speed;
@@ -79,6 +78,10 @@
           padding: 0.2rem 0.4rem;
           border-radius: 0.5rem;
 
+          &:hover {
+            text-decoration: underline;
+          }
+
           &::before {
             content: '@';
           }
@@ -119,6 +122,10 @@
       }
     } // Card back
   } // Card wrapper
+
+  &:focus {
+    outline: none;
+  }
 } // User card
 
 .flipped {
