@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // TODO use env port
-  baseURL: 'http://localhost:8393/v1',
+  baseURL: '/api/v1',
 });
 
 export default api;
