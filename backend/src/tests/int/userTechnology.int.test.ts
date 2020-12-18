@@ -1,7 +1,7 @@
 import { Connection, Repository } from 'typeorm';
 
 import createTypeormConnection from '@database/createTypeormConnection';
-import { phUser, phTech } from '@tests/placeholders';
+import { helperUser, helperTech } from '@tests/helpers';
 import Technology from '@models/technology';
 import User from '@models/user';
 
@@ -27,8 +27,8 @@ describe('User and technology models integration', () => {
   });
 
   test('Create a user with technologies', async () => {
-    const user = uRepository.create(phUser);
-    const techs = tRepository.create(Array(5).fill(phTech));
+    const user = uRepository.create(helperUser);
+    const techs = tRepository.create(Array(5).fill(helperTech));
     user.technologies = techs;
     await uRepository.save(user);
   });
@@ -38,7 +38,7 @@ describe('User and technology models integration', () => {
     expect(user).toBeDefined();
     expect(user.technologies.length).toBe(5);
     const { name, color } = user.technologies[0];
-    expect({ name, color }).toStrictEqual(phTech);
+    expect({ name, color }).toStrictEqual(helperTech);
   });
 
   test('Update a user technology', async () => {

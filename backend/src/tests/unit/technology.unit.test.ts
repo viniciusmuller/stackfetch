@@ -1,6 +1,6 @@
 import { Connection, Repository } from 'typeorm';
 
-import { phTech } from '@tests/placeholders';
+import { helperTech } from '@tests/helpers';
 import createTypeormConnection from '@database/createTypeormConnection';
 import Technology from '@models/technology';
 
@@ -23,7 +23,7 @@ describe('User database operations', () => {
   });
 
   test('Create and saves a technology', async () => {
-    const user = repository.create(phTech);
+    const user = repository.create(helperTech);
     await repository.save(user);
   });
 

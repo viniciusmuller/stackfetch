@@ -1,6 +1,6 @@
 import { Connection, Repository } from 'typeorm';
 
-import { phUser } from '@tests/placeholders';
+import { helperUser } from '@tests/helpers';
 import createTypeormConnection from '@database/createTypeormConnection';
 import User from '@models/user';
 
@@ -23,7 +23,7 @@ describe('User database operations', () => {
   });
 
   test('Create and saves a user', async () => {
-    const user = repository.create(phUser);
+    const user = repository.create(helperUser);
     await repository.save(user);
   });
 

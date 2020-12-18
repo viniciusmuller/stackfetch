@@ -87,8 +87,6 @@ export default {
       )
       .getMany();
 
-    console.log(users);
-
     // The above query is returning the users with only the technologies
     // that match on the query instead of all of them, this is a pretty stupid
     // fix, but it works.
@@ -105,7 +103,7 @@ export default {
       }
     );
 
-    console.log(users);
+    //console.log(users);
 
     return response.json(UserView.renderMany(users));
   },
@@ -135,10 +133,6 @@ export default {
   async destroy(request: Request, response: Response) {
     const userRepository = getRepository(User);
     const id = request.params.id;
-    const key = request.body.key;
-
-    if (key != masterKey)
-      return response.status(401).json({ message: 'Invalid API key.' });
 
     const user = await userRepository.findOne(id);
 
@@ -150,7 +144,6 @@ export default {
   },
 
   async edit(request: Request, response: Response) {
-    // TODO authentication required decorator
     // TODO edit user
 
     return response.status(501).json({ message: 'Not implemented.' });

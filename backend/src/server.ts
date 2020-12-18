@@ -1,8 +1,8 @@
-import { Connection } from 'typeorm';
 import express from 'express';
 import 'express-async-errors';
 import dotenv from 'dotenv';
-dotenv.config({ path: __dirname + '/.env' });
+dotenv.config();
+import path from 'path';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -26,10 +26,24 @@ const middlewares = [
 
 createTypeormConnection()
   // Await typeorm to connect
-  .then((_: Connection) => {})
+  .then((_) => {
+    console.log('Database connected!');
+  })
+  .catch((err) => {
+    console.log(err);
+  })
   // And start our server
   .finally(() => {
     const app = express();
     middlewares.forEach((m) => app.use(m));
+
+    // If our server is running in production, we then serve our react build
+    if (process.env.NODE_ENV === 'production') {
+      console.log('Serving React App at /');
+      app.get('/', (_, response) => {
+        app.use(express.static(path.resolve(__dirname + '/../build/')));
+        response.sendFile(path.resolve(__dirname + '/../build/index.html'));
+      });
+    }
     app.listen(port, () => console.log(`Server listening at ${port}!`));
   });

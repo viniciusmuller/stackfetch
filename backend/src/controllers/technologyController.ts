@@ -13,7 +13,6 @@ export default {
     return response.json(TechnologyView.renderMany(technologies));
   },
 
-  // TODO create authentication required decorator
   async destroy(request: Request, response: Response) {
     return response.status(501).json({ message: 'Not implemented.' });
   },
