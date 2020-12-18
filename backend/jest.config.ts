@@ -15,7 +15,8 @@ const config: Config.InitialOptions = {
     '~/(.*)': '<rootDir>/src/$1'
   },
   moduleFileExtensions: ['js', 'ts'],
-  transform: { '\\.ts$': 'ts-jest' }
+  transform: { '\\.ts$': 'ts-jest' },
+  setupFiles: ['dotenv/config']
 };
 
 export default config;
