@@ -1,7 +1,0 @@
-FROM node:14-alpine
-
-VOLUME /api
-
-RUN yarn
-
-CMD [ "./start.sh" ]
