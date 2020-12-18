@@ -1,6 +1,7 @@
 const config = {
   masterKey: process.env.MASTER_KEY,
-  port: process.env.PORT,
-}
+  // If we are in production, use port 80
+  port: process.env.NODE_ENV === 'production' ? 8080 : process.env.PORT
+};
 
 export = config;

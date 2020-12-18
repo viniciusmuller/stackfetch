@@ -1,13 +1,11 @@
 import { Request, Response } from 'express';
 import { getRepository, Brackets } from 'typeorm';
 
-import { masterKey } from '@config/apiConfig';
 import Technology from '@models/technology';
 import User from '@models/user';
 import UserView from '@views/userView';
 import userSchema from '@validation/userSchema';
 
-// TODO uses classes as controllers
 export default {
   /**
    * Creates a user into the database and returns his information.
@@ -103,8 +101,6 @@ export default {
       }
     );
 
-    //console.log(users);
-
     return response.json(UserView.renderMany(users));
   },
 
@@ -120,10 +116,7 @@ export default {
     const userRepository = getRepository(User);
     const id = request.params.id;
 
-    // TODO now relation is eager
-    const user = await userRepository.findOne(id, {
-      relations: ['technologies']
-    });
+    const user = await userRepository.findOne(id);
 
     return user
       ? response.json(UserView.render(user))
@@ -138,23 +131,34 @@ export default {
 
     if (user) {
       await userRepository.delete(id);
-      return response.json({ message: 'User succesfully deleted.' });
+      return response.json({ message: 'User deleted.' });
     }
     return response.status(404).json({ message: 'Invalid user ID.' });
   },
 
   async edit(request: Request, response: Response) {
-    // TODO edit user
+    // TODO edit user technologies
+    const userRepository = getRepository(User);
+    const technologyRepository = getRepository(Technology);
+    const id = request.params.id;
+    const stack = request.body.stack;
 
-    return response.status(501).json({ message: 'Not implemented.' });
+    // TODO stack with any values than integers blowing up here
+    const casted = userSchema.cast(request.body, {
+      stripUnknown: true
+    });
 
-    // const userRepository = getRepository(User);
-    // const id = request.params.id;
-    // const key = request.body.key;
+    let user = await userRepository.findOne(id);
 
-    // if (key != masterKey)
-    //   return response.status(401).json({ message: 'Invalid API master key.' });
+    if (user) {
+      user = { ...user, ...casted };
+      if (stack.every((id: number) => Number.isInteger(id))) {
+        user.technologies = await technologyRepository.findByIds(stack);
+      }
+      await userRepository.save(user);
+      return response.json({ message: 'User changed.' });
+    }
 
-    // let user = userRepository.findOne(id);
+    return response.status(404).json({ message: 'Invalid user ID.' });
   }
 };
