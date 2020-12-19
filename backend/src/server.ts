@@ -40,9 +40,10 @@ createTypeormConnection()
     // If our server is running in production, we then serve our react build
     if (process.env.NODE_ENV === 'production') {
       console.log('Serving React App at /');
+      // Serving files from inside /dist directory
+      app.use(express.static(path.resolve(__dirname + '/../../build/')));
       app.get('/', (_, response) => {
-        app.use(express.static(path.resolve(__dirname + '/../build/')));
-        response.sendFile(path.resolve(__dirname + '/../build/index.html'));
+        response.sendFile(path.resolve(__dirname + '/../../build/index.html'));
       });
     }
     app.listen(port, () => console.log(`Server listening at ${port}!`));
