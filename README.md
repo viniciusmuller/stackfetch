@@ -1,44 +1,35 @@
-# Application currently in development.
+# 🚧 Application currently in development 🚧
 
 ## Setup:
+
 - Clone the repository:
 
-    ```bash
-    git clone https://github.com/arcticlimer/stack-app.git
-    ```
+  ```bash
+  git clone https://github.com/arcticlimer/stackfetch.git
+  ```
 
-- Enter the API directory:
+- Enter the app directory:
 
-    ```bash
-    cd stack-app/backend
-    ```
+  ```bash
+  cd stackfetch
+  ```
 
-- Install the dependencies:
-    
-    ```bash
-    yarn
-    ```
+### If you want a development environment:
 
-- Setup the database:
+- Run the development script
 
-    ```bash
-    yarn setup-db
-    ```
+  ```bash
+  sh dev.sh
+  ```
 
-- Start the server:
+  > Note: You should have postgresql installed in order to run this app.
 
-    ```bash
-    yarn dev
-    ```
+Done! Now the react server will be listening at http://localhost:3000 and the express server at http://localhost:3333.
 
-Done! Now the server will be listening at http://localhost:8393.
+### If you want a production build:
 
-## Current API:
+```bash
+sh build.sh
+```
 
-| Action         | How to do it                        |
-|----------------|-------------------------------------|
-| Create a user  | POST request to /users              |
-| Select a user  | GET request to /users/:userId       |
-| Paginate users | GET request to /users/?page=:number |
-
-> If no query string is provided on /users, the page parameter is defaulted to 0.
+Done! Now the application will be listening at http://localhost:8080.
