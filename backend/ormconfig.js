@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     name: 'development',
     type: 'postgres',
@@ -43,10 +43,10 @@ export default [
 
     synchronize: false,
     runMigrations: true,
-    entities: ['./src/models/*.ts'],
-    migrations: ['./src/database/migrations/*.ts'],
+    entities: ['./dist/src/models/*.js'],
+    migrations: ['./dist/src/database/migrations/*.js'],
     cli: {
-      migrationsDir: './src/database/migrations'
+      migrationsDir: './dist/src/database/migrations'
     }
   }
 ];
