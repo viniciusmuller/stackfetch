@@ -16,7 +16,6 @@ import techRoutes from '@routes/technologyRoutes';
 const middlewares = [
   express.json(),
   morgan('common'),
-  // TODO cors whitelist before deploy
   cors(),
   apiLimiter,
   userRoutes,
@@ -26,12 +25,11 @@ const middlewares = [
 
 createTypeormConnection()
   // Await typeorm to connect
-  .then((_) => {
+  .then(async (conn) => {
+    await conn.runMigrations();
     console.log('Database connected!');
   })
-  .catch((err) => {
-    console.log(err);
-  })
+  .catch(console.log)
   // And start our server
   .finally(() => {
     const app = express();
@@ -39,10 +37,10 @@ createTypeormConnection()
 
     // If our server is running in production, we then serve our react build
     if (process.env.NODE_ENV === 'production') {
-      console.log('Serving React App at /');
-      // Serving files from inside /dist directory
+      console.log('Serving React App!');
+      // Serving files from build directory
       app.use(express.static(path.resolve(__dirname + '/../../build/')));
-      app.get('/', (_, response) => {
+      app.get('*', (_, response) => {
         response.sendFile(path.resolve(__dirname + '/../../build/index.html'));
       });
     }

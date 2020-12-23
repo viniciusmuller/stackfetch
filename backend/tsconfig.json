@@ -1,4 +1,7 @@
 {
+  // tsconfig is here in order to compile just this folder
+  // without any warnings about the react directory.
+
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
@@ -25,7 +28,7 @@
     "rootDir": ".",
     "outDir": "dist/",
 
-    "typeRoots": ["./types", "./node_modules/@types"],
+    "typeRoots": ["./src/types", "./node_modules/@types"],
     "resolveJsonModule": true,
 
     /* Basic Options */

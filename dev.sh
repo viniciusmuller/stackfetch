@@ -1,11 +1,6 @@
-echo "Starting postgresql"...
-sudo service postgresql start
-createdb tests && createdb development
+sh ./_build_helper.sh
 
-e="./backend/.env"
-ee="./backend/.env.example"
-# Creates a .env based on .env.example if .env doesn't exist
-[ -f $ee ] && [ ! -f $e ] && cp $ee $e
+createdb stackfetch__dev
 
 (cd backend && yarn && yarn dev &)
-(cd frontend && yarn && yarn start &)
+(cd frontend && yarn && yarn start)

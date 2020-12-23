@@ -2,13 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "engines": {
-    "node": "14.15.1"
+    "node": "14.15"
   },
-  "main": "./src/server.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development ts-node-dev --transpile-only --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
-    "prod": "tsc && NODE_ENV=production node dist/src/server.js",
+    "dev": "NODE_ENV=development ts-node-dev --transpile-only -r tsconfig-paths/register src/server.ts",
+    "prod": "ttsc && NODE_ENV=production node dist/src/server.js",
+    "heroku-postbuild": "cd frontend && yarn --dev && yarn build",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "test": "jest --verbose --runInBand"
   },
@@ -21,9 +21,12 @@
     "express-rate-limit": "^5.2.3",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
-    "ts-patch": "^1.3.1",
     "typeorm": "^0.2.29",
-    "yup": "^0.30.0"
+    "yup": "^0.30.0",
+    "ts-patch": "^1.3.1",
+    "ttypescript": "^1.5.12",
+    "tsconfig-paths": "^3.9.0",
+    "typescript-transform-paths": "^2.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.8",
@@ -40,11 +43,9 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.2.0",
     "jest": "^26.6.3",
-    "prettier": "^2.2.1",
     "ts-jest": "^26.4.4",
+    "prettier": "^2.2.1",
     "ts-node-dev": "^1.0.0",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^4.1.2",
-    "typescript-transform-paths": "^2.1.0"
+    "typescript": "^4.1.2"
   }
 }

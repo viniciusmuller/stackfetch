@@ -2,13 +2,13 @@ module.exports = [
   {
     name: 'development',
     type: 'postgres',
-    host: process.env.DATABASE_URL,
-    port: process.env.PG_PORT,
+    host: 'localhost',
+    port: 5432,
     username: process.env.PG_USERNAME,
     password: process.env.PG_PASSWORD,
-    database: process.env.PG_DATABASE,
+    database: 'stackfetch__dev',
 
-    synchronize: true,
+    runMigrations: true,
     entities: ['./src/models/*.ts'],
     migrations: ['./src/database/migrations/*.ts'],
     cli: {
@@ -18,11 +18,11 @@ module.exports = [
   {
     name: 'test',
     type: 'postgres',
-    host: process.env.DATABASE_URL,
-    port: process.env.PG_PORT,
+    host: 'localhost',
+    port: 5432,
     username: process.env.PG_USERNAME,
     password: process.env.PG_PASSWORD,
-    database: 'tests',
+    database: 'stackfetch__tests',
 
     synchronize: true,
     dropSchema: true,
@@ -35,14 +35,15 @@ module.exports = [
   {
     name: 'production',
     type: 'postgres',
-    host: process.env.DATABASE_URL,
-    port: process.env.PG_PORT,
+    // Since heroku is not being used for deployment anymore, just use the
+    // local postgres database for POC
+    //url: process.env.DATABASE_URL,
+    port: 5432,
     username: process.env.PG_USERNAME,
     password: process.env.PG_PASSWORD,
-    database: process.env.PG_DATABASE,
+    database: 'stackfetch__prod',
 
     synchronize: false,
-    runMigrations: true,
     entities: ['./dist/src/models/*.js'],
     migrations: ['./dist/src/database/migrations/*.js'],
     cli: {
