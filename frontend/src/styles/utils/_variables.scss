@@ -51,7 +51,7 @@ $technology-selected-bg-color: $app-color-2;
 $technology-selected-text-color: $app-details;
 
 // ----------------------- Scrollbar -----------------------
-$scrollbar-thumb-color: $app-color-1;
+$scrollbar-thumb-color: $app-color-2;
 $scrollbar-track-color: #202324;
 
 // ----------------------- Search -----------------------
@@ -65,6 +65,7 @@ $search-input-underline-color-focus: $app-details;
 
 // ----------------------- Users -----------------------
 $user-bg-color: #202324;
+$user-pic-placeholder-color: #333333;
 $username-text-color: $app-details;
 $user-gh-username-background-color: #1d1d1d;
 $user-gh-username-text-color: $app-color-3;

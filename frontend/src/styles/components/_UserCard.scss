@@ -39,8 +39,9 @@
       }
 
       .gh-profile-pic {
-        width: 10rem;
+        @include width-height(10rem);
         border-radius: 50%;
+        background-color: $user-pic-placeholder-color;
         margin: 1.75rem 0 0.5rem 0;
 
         @media (max-width: $mobile) {
