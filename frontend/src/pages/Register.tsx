@@ -28,7 +28,7 @@ function Register() {
           ) : (
             <>
               <h1>Register on StackFetch</h1>
-              <RegisterForm onSucess={() => setSuccess(true)} />
+              <RegisterForm onSuccess={() => setSuccess(true)} />
             </>
           )}
         </div>

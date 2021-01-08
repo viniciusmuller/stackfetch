@@ -9,7 +9,7 @@ import FormField from './FormField';
 import UserTechnologyField from './UserTechnologyField';
 
 interface RegisterFormProps {
-  onSucess: () => void;
+  onSuccess: () => void;
 }
 
 function RegisterForm(props: RegisterFormProps) {
@@ -23,17 +23,30 @@ function RegisterForm(props: RegisterFormProps) {
         stack: [],
       }}
       validationSchema={userSchema}
-      onSubmit={(values, { setSubmitting, setErrors }) => {
+      onSubmit={(values, { setSubmitting, setErrors, setStatus }) => {
         api
           .post('/users', values)
-          // If no errors occurs, user was registered on the system.
-          .then(() => props.onSucess())
-          .catch((err) => setErrors(err.response.data.errors))
+          .then(props.onSuccess)
+          .catch((err) => {
+            switch (err.response.status) {
+              case 429:
+                setStatus(
+                  'You registered too many accounts. Please wait some minutes.',
+                );
+                break;
+              case 422:
+                setErrors(err.response.data.errors);
+                break;
+              default:
+                console.error(err);
+            }
+          })
           .finally(() => setSubmitting(false));
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, status }) => (
         <Form className="register-form" autoComplete="off">
+          <p className="field-error">{status}</p>
           <FormField
             name="name"
             labelMessage="Your name"
