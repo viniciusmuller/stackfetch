@@ -7,7 +7,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.21.0",
     "formik": "^2.2.5",
-    "node-sass": "4.14.1",
+    "node-sass": "7.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
